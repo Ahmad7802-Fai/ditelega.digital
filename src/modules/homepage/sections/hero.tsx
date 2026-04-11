@@ -32,8 +32,12 @@ export default function Hero() {
       update(autoX, autoY);
     }, 1200);
 
-    // MOUSE PARALLAX
+    const isMobile = window.innerWidth < 768;
+
+    // MOUSE PARALLAX (DESKTOP ONLY)
     const handleMouse = (e: MouseEvent) => {
+      if (isMobile) return;
+
       const rect = el.getBoundingClientRect();
 
       const x = ((e.clientX - rect.left) / rect.width) * 100;
@@ -42,55 +46,59 @@ export default function Hero() {
       update(x, y);
 
       if (bg) {
-        const moveX = (e.clientX / window.innerWidth - 0.5) * 20;
-        const moveY = (e.clientY / window.innerHeight - 0.5) * 20;
-        bg.style.transform = `translate(${moveX}px, ${moveY}px) scale(1.05)`;
+        const moveX = (e.clientX / window.innerWidth - 0.5) * 30;
+        const moveY = (e.clientY / window.innerHeight - 0.5) * 30;
+
+        bg.style.transform = `
+          translate(${moveX}px, ${moveY}px)
+          scale(1.06)
+        `;
       }
     };
 
-    // TOUCH
-    const handleTouch = (e: TouchEvent) => {
-      const touch = e.touches[0];
-      if (!touch) return;
-
-      const rect = el.getBoundingClientRect();
-      const x = ((touch.clientX - rect.left) / rect.width) * 100;
-      const y = ((touch.clientY - rect.top) / rect.height) * 100;
-
-      update(x, y);
-    };
-
     el.addEventListener("mousemove", handleMouse);
-    el.addEventListener("touchmove", handleTouch);
 
     return () => {
       clearInterval(interval);
       el.removeEventListener("mousemove", handleMouse);
-      el.removeEventListener("touchmove", handleTouch);
     };
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center overflow-hidden">
 
-      {/* 🔥 BACKGROUND */}
-      <div
-        ref={bgRef}
-        className="absolute inset-0 transition-transform duration-500"
-      >
-        <Image
-          src="/hero.webp"
-          alt="Hero"
-          fill
-          priority
-          className="object-cover"
-        />
+      {/* 🔥 BACKGROUND WRAPPER (CLIPPED) */}
+      <div className="absolute inset-0 overflow-hidden">
 
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+        <div
+          ref={bgRef}
+          className="w-full h-full transition-transform duration-500"
+        >
+          <Image
+            src="/hero.webp"
+            alt="Hero"
+            fill
+            priority
+            className="object-cover"
+          />
 
-        {/* GLOW */}
-        <div className="absolute -left-40 top-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-green-500/20 blur-[140px] rounded-full" />
+          {/* OVERLAY */}
+          <div className="absolute inset-0 bg-black/60" />
+          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+
+          {/* EXTRA DEPTH */}
+          <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-transparent" />
+
+          {/* 🔥 GLOW (FULL SIZE, TAPI TER-CLIP) */}
+          <div className="
+            absolute
+            -left-40
+            top-1/2 -translate-y-1/2
+            w-[500px] h-[500px]
+            bg-green-500/20 blur-[140px] rounded-full
+            pointer-events-none
+          " />
+        </div>
       </div>
 
       {/* 🔥 CONTENT */}
@@ -169,44 +177,18 @@ export default function Hero() {
           <div className="relative hidden lg:block">
             <div className="relative w-[400px] h-[400px]">
 
-              {/* CARD 1 */}
-              <div className="
-                absolute top-0 right-10
-                w-[220px]
-                bg-white/90 backdrop-blur-md
-                rounded-2xl p-4
-                shadow-[0_20px_60px_rgba(0,0,0,0.15)]
-                rotate-[-8deg]
-                animate-[float_6s_ease-in-out_infinite]
-              ">
+              <div className="absolute top-0 right-10 w-[220px] bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.15)] rotate-[-8deg] animate-[float_6s_ease-in-out_infinite]">
                 <p className="text-sm font-semibold text-gray-800">Dashboard</p>
                 <p className="text-xs text-gray-500 mt-1">Analytics & Growth</p>
                 <div className="mt-3 h-20 bg-gradient-to-r from-green-200 to-green-400 rounded-lg"></div>
               </div>
 
-              {/* CARD 2 */}
-              <div className="
-                absolute top-[110px] left-[40px]
-                z-10
-                w-[260px]
-                bg-white rounded-2xl p-5
-                shadow-[0_30px_80px_rgba(0,0,0,0.2)]
-                animate-[float_5s_ease-in-out_infinite]
-              ">
+              <div className="absolute top-[110px] left-[40px] z-10 w-[260px] bg-white rounded-2xl p-5 shadow-[0_30px_80px_rgba(0,0,0,0.2)] animate-[float_5s_ease-in-out_infinite]">
                 <p className="text-sm font-semibold text-gray-800">UI Preview</p>
                 <div className="mt-3 h-32 bg-gray-100 rounded-lg"></div>
               </div>
 
-              {/* CARD 3 */}
-              <div className="
-                absolute bottom-0 right-0
-                w-[200px]
-                bg-white/90 backdrop-blur-md
-                rounded-2xl p-4
-                shadow-[0_20px_60px_rgba(0,0,0,0.15)]
-                rotate-[10deg]
-                animate-[float_7s_ease-in-out_infinite]
-              ">
+              <div className="absolute bottom-0 right-0 w-[200px] bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.15)] rotate-[10deg] animate-[float_7s_ease-in-out_infinite]">
                 <p className="text-sm font-semibold text-gray-800">Marketing</p>
                 <p className="text-xs text-gray-500 mt-1">Ads & SEO</p>
                 <div className="mt-3 h-16 bg-gradient-to-r from-blue-200 to-blue-400 rounded-lg"></div>

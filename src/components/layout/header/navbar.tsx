@@ -40,7 +40,7 @@ export default function Navbar() {
                 h-[40px] sm:h-[45px] md:h-[50px]
               ">
                 <Image
-                  src="/logo.svg"
+                  src="/logo2.webp"
                   alt="Ditelaga Digital"
                   fill
                   priority

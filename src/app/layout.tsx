@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   /* 🔥 ICONS */
   icons: {
     icon: [
-      { url: "/favicon.ico" }, // ✅ FIX
+      { url: "/favicon.ico" },
       { url: "/icon.png", type: "image/png" },
     ],
     apple: "/apple-icon.png",
@@ -79,7 +79,7 @@ export const metadata: Metadata = {
 };
 
 /* ========================= */
-/* 🔥 VIEWPORT (FIX WARNING) */
+/* 🔥 VIEWPORT */
 /* ========================= */
 
 export const viewport: Viewport = {
@@ -97,19 +97,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body className="bg-white text-gray-900 antialiased">
-
+      <body
+        className="
+          bg-white text-gray-900 antialiased
+          overflow-x-hidden
+        "
+      >
         {/* 🔥 NAVBAR */}
         <Navbar />
 
         {/* 🔥 MAIN */}
-        <main className="pt-20">
+        <main className="pt-20 overflow-x-hidden">
           {children}
         </main>
 
         {/* 🔥 FOOTER */}
         <Footer />
-
       </body>
     </html>
   );
