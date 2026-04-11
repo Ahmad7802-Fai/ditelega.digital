@@ -16,17 +16,58 @@
   }
 }
 
-/* ===== GLOBAL STYLE ===== */
+/* ===== RESET & GLOBAL FIX ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* 🔥 FIX OVERFLOW MOBILE (WAJIB) */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* 🔥 SMOOTH SCROLL */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== BODY ===== */
 body {
   background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+
+  /* 🔥 BETTER RENDER */
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+
+  /* 🔥 MOBILE UX */
+  overscroll-behavior-x: none;
 }
 
+/* ===== CONTAINER SYSTEM ===== */
 .container-custom {
-  @apply max-w-6xl mx-auto px-6;
+  @apply max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
 }
 
+/* ===== MEDIA SAFE ===== */
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ===== BUTTON TAP FIX (MOBILE) ===== */
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* ===== FLOAT ANIMATION ===== */
 .animate-float {
   animation: float 4s ease-in-out infinite;
 }
@@ -35,4 +76,13 @@ body {
   0% { transform: translateY(0px) rotate(var(--rotate, 0deg)); }
   50% { transform: translateY(-10px) rotate(var(--rotate, 0deg)); }
   100% { transform: translateY(0px) rotate(var(--rotate, 0deg)); }
+}
+
+/* ===== PREMIUM SCROLLBAR (OPTIONAL) ===== */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.2);
+  border-radius: 10px;
 }

@@ -16,18 +16,19 @@ export function Container({
   return (
     <div
       className={cn(
-        "w-full",
+        // 🔥 BASE
+        "w-full min-w-0",
 
-        // 🔥 RESPONSIVE PADDING (LEBIH HALUS)
+        // 🔥 RESPONSIVE PADDING
         "px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20",
 
-        // 🔥 WIDTH SYSTEM
-        size === "default" && "max-w-[1200px]",
-        size === "wide" && "max-w-[1400px]",
-        size === "narrow" && "max-w-[900px]",
+        // 🔥 WIDTH SYSTEM (LEBIH STANDARD)
+        size === "default" && "max-w-6xl",   // ~1152px
+        size === "wide" && "max-w-7xl",      // ~1280px
+        size === "narrow" && "max-w-3xl",    // ~768px
         size === "full" && "max-w-full",
 
-        // 🔥 CENTER
+        // 🔥 CENTERING
         center && "mx-auto",
 
         className
