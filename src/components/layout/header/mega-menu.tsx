@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -10,6 +11,7 @@ import { iconMap } from "@/lib/icon-map";
 export default function MegaMenu() {
   const [open, setOpen] = useState(false);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const isClickingRef = useRef(false);
 
   const handleEnter = () => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -17,9 +19,11 @@ export default function MegaMenu() {
   };
 
   const handleLeave = () => {
+    if (isClickingRef.current) return;
+
     timeoutRef.current = setTimeout(() => {
       setOpen(false);
-    }, 200);
+    }, 150);
   };
 
   return (
@@ -72,9 +76,17 @@ export default function MegaMenu() {
                   return (
                     <MenuItem
                       key={j}
-                      icon={<Icon size={18} />}
+                      icon={<Icon size={16} strokeWidth={1.8} />}
                       title={item.title}
-                      desc={item.desc}
+                      href={item.href}
+                      onNavigate={() => {
+                        isClickingRef.current = true;
+                        setOpen(false);
+
+                        setTimeout(() => {
+                          isClickingRef.current = false;
+                        }, 200);
+                      }}
                     />
                   );
                 })}
@@ -93,9 +105,17 @@ export default function MegaMenu() {
               </p>
             </div>
 
-            <button className="px-4 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700 transition">
+            <Link
+              href="/contact"
+              prefetch
+              onMouseDown={() => {
+                isClickingRef.current = true;
+                setOpen(false);
+              }}
+              className="px-4 py-2 text-sm bg-green-600 text-white rounded-lg hover:bg-green-700 transition"
+            >
               Konsultasi
-            </button>
+            </Link>
           </div>
 
         </div>
@@ -103,6 +123,10 @@ export default function MegaMenu() {
     </div>
   );
 }
+
+/* ========================= */
+/* 🔥 GROUP */
+/* ========================= */
 
 function MenuGroup({
   title,
@@ -123,27 +147,45 @@ function MenuGroup({
   );
 }
 
+/* ========================= */
+/* 🔥 ITEM */
+/* ========================= */
+
 function MenuItem({
   icon,
   title,
-  desc,
+  href,
+  onNavigate,
 }: {
   icon: React.ReactNode;
   title: string;
-  desc: string;
+  href: string;
+  onNavigate?: () => void;
 }) {
   return (
-    <div className="group flex gap-3 p-3 rounded-xl hover:bg-gray-50 transition cursor-pointer">
-      <div className="text-green-600 group-hover:scale-110 transition">
+    <Link
+      href={href}
+      prefetch
+      onClick={() => {
+        setTimeout(() => {
+          onNavigate?.();
+        }, 50); // 🔥 delay biar router jalan dulu
+      }}
+      className="
+        group flex items-center gap-3
+        py-2.5 px-2
+        rounded-lg
+        transition
+        hover:bg-green-50
+      "
+    >
+      <div className="text-gray-400 group-hover:text-green-600 transition">
         {icon}
       </div>
 
-      <div>
-        <p className="text-sm font-medium text-gray-900 group-hover:text-green-600 transition">
-          {title}
-        </p>
-        <p className="text-xs text-gray-500">{desc}</p>
-      </div>
-    </div>
+      <p className="text-[15px] font-medium text-gray-600 group-hover:text-green-600 transition">
+        {title}
+      </p>
+    </Link>
   );
 }

@@ -14,7 +14,7 @@ export default function Footer() {
   const handleWhatsApp = () => {
     const message =
       "Halo, saya tertarik bekerja sama dengan Ditelaga Digital.";
-    const url = `https://wa.me/6281234567890?text=${encodeURIComponent(
+    const url = `https://wa.me/6281779229522?text=${encodeURIComponent(
       message
     )}`;
     window.open(url, "_blank");

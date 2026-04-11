@@ -1,0 +1,55 @@
+import { Section, Container } from "@/components";
+import { features } from "../data";
+import FeatureCard from "../components/feature-card";
+
+export default function Features() {
+  return (
+    <Section className="relative py-32 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+
+      {/* 🔥 BACKGROUND GLOW */}
+      <div className="
+        absolute left-1/2 -translate-x-1/2 top-0
+        w-[800px] h-[800px]
+        bg-green-300/20 blur-[140px]
+        rounded-full
+      " />
+
+      <Container className="relative z-10">
+
+        {/* 🔥 BADGE */}
+        <div className="text-center mb-6">
+          <span className="
+            inline-block px-4 py-1.5 rounded-full
+            bg-green-100 text-green-700 text-xs font-medium
+          ">
+            Core Features
+          </span>
+        </div>
+
+        {/* 🔥 TITLE */}
+        <h2 className="
+          text-3xl md:text-4xl text-center font-semibold tracking-tight
+        ">
+          Fitur Utama Sistem
+        </h2>
+
+        {/* 🔥 SUBTEXT */}
+        <p className="
+          text-gray-600 text-center mt-4
+          max-w-xl mx-auto text-sm leading-relaxed
+        ">
+          Dirancang untuk membantu operasional bisnis Anda menjadi lebih
+          efisien, terstruktur, dan scalable.
+        </p>
+
+        {/* 🔥 GRID */}
+        <div className="grid md:grid-cols-3 gap-10 mt-20">
+          {features.map((item, i) => (
+            <FeatureCard key={i} {...item} />
+          ))}
+        </div>
+
+      </Container>
+    </Section>
+  );
+}

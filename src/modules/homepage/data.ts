@@ -79,14 +79,42 @@ export const testimonials = [
 export const pricing = [
   {
     title: "Starter",
-    price: "2.5jt",
+    desc: "Untuk bisnis kecil yang ingin online cepat",
+    price: "Rp 2.5jt",
+    features: [
+      "Website 3 Halaman",
+      "Mobile Responsive",
+      "Desain Profesional",
+      "Hosting 1 Tahun",
+      "Support via WhatsApp",
+    ],
   },
   {
     title: "Business",
-    price: "4.9jt",
+    desc: "Rekomendasi terbaik untuk UMKM & Startup",
+    price: "Rp 4.9jt",
+    features: [
+      "Website 6 Halaman",
+      "SEO Dasar",
+      "Kecepatan Optimal",
+      "Branding Element",
+      "Domain + Hosting 1 Tahun",
+      "Prioritas Support",
+    ],
   },
   {
     title: "Enterprise",
-    price: "9.9jt",
+    desc: "Untuk perusahaan skala besar",
+    price: "Rp 9.9jt",
+    features: [
+      "Website Unlimited Halaman",
+      "Full Custom Design",
+      "SEO + Speed Optimization",
+      "Sistem Admin / Dashboard",
+      "Integrasi API",
+      "Dedicated Support",
+    ],
   },
 ];
+
+

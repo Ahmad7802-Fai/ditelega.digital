@@ -1,6 +1,6 @@
 import {
   Globe,
-  LayoutDashboard,
+  LayoutGrid,     // ✅ GANTI INI
   PenTool,
   BarChart3,
   Megaphone,
@@ -9,7 +9,7 @@ import {
 
 export const iconMap = {
   globe: Globe,
-  layout: LayoutDashboard,
+  layout: LayoutGrid,   // ✅ FIX
   pen: PenTool,
   chart: BarChart3,
   megaphone: Megaphone,
