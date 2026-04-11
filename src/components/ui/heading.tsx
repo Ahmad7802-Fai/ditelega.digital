@@ -29,17 +29,32 @@ export function Heading({
       {/* TITLE */}
       <h2
         className={cn(
-          "font-semibold tracking-tight",
+          "font-semibold tracking-tight text-gray-900",
 
-          // size system
-          size === "sm" && "text-2xl md:text-3xl",
-          size === "md" && "text-3xl md:text-4xl",
-          size === "lg" && "text-4xl md:text-5xl leading-[1.1]"
+          // 🔥 RESPONSIVE SIZE SYSTEM
+          size === "sm" && "text-2xl sm:text-3xl",
+          size === "md" && "text-3xl sm:text-4xl md:text-5xl",
+          size === "lg" && "text-4xl sm:text-5xl md:text-6xl leading-[1.1]"
         )}
       >
         {title}{" "}
         {highlight && (
-          <span className="text-green-600">{highlight}</span>
+          <span
+            className="
+              relative inline-block
+              text-green-600
+            "
+          >
+            {highlight}
+
+            {/* 🔥 UNDERLINE GLOW */}
+            <span className="
+              absolute left-0 bottom-1 w-full h-[6px]
+              bg-green-200/60
+              blur-sm
+              -z-10
+            " />
+          </span>
         )}
       </h2>
 
@@ -47,7 +62,11 @@ export function Heading({
       {subtitle && (
         <p
           className={cn(
-            "mt-4 text-gray-500 leading-relaxed",
+            "mt-5 text-gray-500 leading-relaxed",
+
+            // 🔥 SIZE + MAX WIDTH
+            "max-w-lg",
+            align === "center" && "mx-auto",
 
             size === "sm" && "text-sm",
             size === "md" && "text-base",

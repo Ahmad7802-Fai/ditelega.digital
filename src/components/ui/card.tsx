@@ -5,7 +5,7 @@ type CardProps = {
   className?: string;
   variant?: "default" | "glass" | "elevated";
   hover?: boolean;
-  padding?: boolean; // 🔥 NEW
+  padding?: boolean;
 };
 
 export function Card({
@@ -18,30 +18,57 @@ export function Card({
   return (
     <div
       className={cn(
-        "relative rounded-2xl transition-all duration-300 overflow-hidden",
+        "relative rounded-3xl transition-all duration-500 overflow-hidden",
 
-        // 🔥 PADDING (OPTIONAL)
+        // 🔥 PADDING
         padding && "p-5 md:p-6 lg:p-7",
 
-        // DEFAULT
+        // 🔥 DEFAULT (LEBIH HALUS)
         variant === "default" &&
-          "bg-white border border-gray-100",
+          `
+          bg-white
+          border border-gray-100
+          shadow-[0_10px_30px_rgba(0,0,0,0.04)]
+        `,
 
-        // ELEVATED
+        // 🔥 ELEVATED (DEPTH NAIK)
         variant === "elevated" &&
-          "bg-white border border-gray-100 shadow-[0_20px_60px_rgba(0,0,0,0.08)]",
+          `
+          bg-white
+          border border-gray-100
+          shadow-[0_25px_80px_rgba(0,0,0,0.08)]
+        `,
 
-        // GLASS
+        // 🔥 GLASS (UPGRADE BESAR)
         variant === "glass" &&
-          "backdrop-blur-xl bg-white/10 border border-white/20 text-white",
+          `
+          backdrop-blur-2xl
+          bg-white/60
+          border border-white/40
+          shadow-[0_30px_100px_rgba(0,0,0,0.15)]
+        `,
 
-        // 🔥 HOVER (OPTIONAL)
+        // 🔥 HOVER PREMIUM
         hover &&
-          "hover:-translate-y-1 hover:shadow-[0_25px_70px_rgba(0,0,0,0.12)]",
+          `
+          hover:-translate-y-2
+          hover:shadow-[0_40px_120px_rgba(0,0,0,0.12)]
+        `,
 
         className
       )}
     >
+      {/* 🔥 SUBTLE GLOW (BIAR MAHAL) */}
+      <div className="
+        pointer-events-none
+        absolute inset-0
+        rounded-3xl
+        bg-gradient-to-br from-white/40 via-transparent to-transparent
+        opacity-0
+        transition
+        group-hover:opacity-100
+      " />
+
       {children}
     </div>
   );

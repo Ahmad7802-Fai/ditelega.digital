@@ -18,29 +18,48 @@ export function Section({
   return (
     <section
       className={cn(
-        "relative w-full",
+        "relative w-full overflow-hidden",
 
-        // spacing system
-        size === "sm" && "py-16",
-        size === "md" && "py-24",
-        size === "lg" && "py-32",
+        // 🔥 RESPONSIVE SPACING (INI KUNCI)
+        size === "sm" && "py-12 md:py-16 lg:py-20",
+        size === "md" && "py-16 md:py-24 lg:py-32",
+        size === "lg" && "py-20 md:py-32 lg:py-40",
 
-        // background variants
+        // 🔥 BACKGROUND SYSTEM
         background === "default" && "bg-white",
         background === "muted" && "bg-gray-50",
+
         background === "gradient" &&
-          "bg-gradient-to-b from-white to-green-50",
-        background === "dark" && "bg-gray-900 text-white",
+          "bg-gradient-to-b from-white via-green-50/40 to-white",
+
+        background === "dark" &&
+          "bg-gradient-to-b from-gray-900 via-black to-gray-900 text-white",
 
         className
       )}
     >
-      {/* TOP DIVIDER */}
-      {divider && (
-        <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+      {/* 🔥 GLOW EFFECT (PREMIUM BANGET) */}
+      {background === "gradient" && (
+        <div className="
+          pointer-events-none
+          absolute left-1/2 -translate-x-1/2 top-0
+          w-[800px] h-[800px]
+          bg-green-400/20 blur-[160px]
+          rounded-full
+        " />
       )}
 
-      {children}
+      {/* 🔥 DIVIDER */}
+      {divider && (
+        <div className="
+          absolute top-0 left-0 w-full h-px
+          bg-gradient-to-r from-transparent via-gray-200 to-transparent
+        " />
+      )}
+
+      <div className="relative z-10">
+        {children}
+      </div>
     </section>
   );
 }

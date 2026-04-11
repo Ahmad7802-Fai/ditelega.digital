@@ -17,15 +17,17 @@ export function Container({
     <div
       className={cn(
         "w-full",
-        "px-6 md:px-12 lg:px-20",
 
-        // width system
-        size === "default" && "max-w-7xl",
+        // 🔥 RESPONSIVE PADDING (LEBIH HALUS)
+        "px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20",
+
+        // 🔥 WIDTH SYSTEM
+        size === "default" && "max-w-[1200px]",
         size === "wide" && "max-w-[1400px]",
-        size === "narrow" && "max-w-4xl",
+        size === "narrow" && "max-w-[900px]",
         size === "full" && "max-w-full",
 
-        // alignment
+        // 🔥 CENTER
         center && "mx-auto",
 
         className
