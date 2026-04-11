@@ -1,63 +1,94 @@
 import "./globals.css";
 import { Navbar, Footer } from "@/components";
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+
+/* ========================= */
+/* 🔥 METADATA (SEO) */
+/* ========================= */
 
 export const metadata: Metadata = {
-  // ✅ FIX WARNING (WAJIB)
   metadataBase: new URL("https://ditelaga.digital"),
 
   title: {
-    default: "Ditelaga Digital",
-    template: "%s | Ditelaga Digital",
+    default: "Ditelaga Creative Digital",
+    template: "%s | Ditelaga Creative Digital",
   },
 
   description:
-    "Ditelaga Digital adalah agency digital untuk website, SEO, dan branding bisnis modern.",
+    "Ditelaga Creative Digital adalah agency digital untuk website, SEO, social media, dan branding bisnis modern.",
 
   keywords: [
-    "website development",
     "jasa website",
+    "website development",
     "digital marketing",
     "SEO Indonesia",
-    "agency digital",
+    "social media management",
+    "google ads",
+    "facebook ads",
+    "branding agency",
   ],
 
-  authors: [{ name: "Ditelaga Digital" }],
-  creator: "Ditelaga Digital",
+  authors: [{ name: "Ditelaga Creative Digital" }],
+  creator: "Ditelaga Creative Digital",
 
-  // 🔥 OPEN GRAPH
+  /* 🔥 ICONS */
+  icons: {
+    icon: [
+      { url: "/favicon.ico" }, // ✅ FIX
+      { url: "/icon.png", type: "image/png" },
+    ],
+    apple: "/apple-icon.png",
+  },
+
+  /* 🔥 PWA */
+  manifest: "/site.webmanifest",
+
+  /* 🔥 OPEN GRAPH */
   openGraph: {
-    title: "Ditelaga Digital - Creative Agency",
+    title: "Ditelaga Creative Digital",
     description:
-      "Website, SEO, dan digital marketing untuk bisnis Anda.",
+      "Website, SEO, Ads, dan Social Media Management untuk meningkatkan bisnis Anda.",
     url: "/",
-    siteName: "Ditelaga Digital",
+    siteName: "Ditelaga Creative Digital",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
+        alt: "Ditelaga Creative Digital",
       },
     ],
     locale: "id_ID",
     type: "website",
   },
 
-  // 🔥 TWITTER
+  /* 🔥 TWITTER */
   twitter: {
     card: "summary_large_image",
-    title: "Ditelaga Digital",
+    title: "Ditelaga Creative Digital",
     description:
       "Solusi website dan digital marketing modern untuk bisnis Anda.",
     images: ["/og-image.jpg"],
   },
 
-  // 🔥 OPTIONAL (BIAR LEBIH LENGKAP)
+  /* 🔥 SEO ROBOTS */
   robots: {
     index: true,
     follow: true,
   },
 };
+
+/* ========================= */
+/* 🔥 VIEWPORT (FIX WARNING) */
+/* ========================= */
+
+export const viewport: Viewport = {
+  themeColor: "#16a34a",
+};
+
+/* ========================= */
+/* 🔥 LAYOUT */
+/* ========================= */
 
 export default function RootLayout({
   children,
@@ -67,9 +98,18 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className="bg-white text-gray-900 antialiased">
+
+        {/* 🔥 NAVBAR */}
         <Navbar />
-        <main className="pt-20">{children}</main>
+
+        {/* 🔥 MAIN */}
+        <main className="pt-20">
+          {children}
+        </main>
+
+        {/* 🔥 FOOTER */}
         <Footer />
+
       </body>
     </html>
   );
