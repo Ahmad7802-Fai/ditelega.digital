@@ -7,33 +7,45 @@ export const services: {
 }[] = [
   {
     title: "Website Development",
-    desc: "Website premium dengan visual mewah, cepat, dan SEO-friendly.",
+    desc: "Website Anda bukan hanya harus terlihat bagus—harus bisa menghasilkan. Kami merancang website cepat, SEO-ready, dan fokus pada konversi untuk meningkatkan penjualan bisnis Anda.",
     icon: "globe",
   },
   {
     title: "Digital Marketing",
-    desc: "Google Ads, SEO, dan strategi berbasis data.",
+    desc: "Berhenti buang budget iklan tanpa hasil. Kami optimalkan Google Ads dan SEO dengan strategi data-driven untuk menghasilkan leads berkualitas dan ROI yang jelas.",
     icon: "chart",
   },
   {
     title: "Branding & Creative",
-    desc: "Desain visual modern dan konten cinematic.",
+    desc: "Brand yang kuat bukan kebetulan. Kami membangun identitas visual dan konten kreatif yang meningkatkan kepercayaan dan membuat bisnis Anda unggul dari kompetitor.",
     icon: "palette",
   },
 ];
 
 export const features = [
   {
-    title: "Cepat & Profesional",
-    desc: "Proses cepat tanpa mengurangi kualitas.",
+    title: "Fokus pada Hasil, Bukan Sekadar Tampilan",
+    desc: "Setiap strategi kami dirancang untuk meningkatkan konversi, bukan hanya mempercantik visual.",
   },
   {
-    title: "Modern & Cinematic",
-    desc: "Design premium & beda dari kompetitor.",
+    title: "Pendekatan Berbasis Data",
+    desc: "Keputusan diambil berdasarkan data dan analisis, bukan asumsi, untuk hasil yang lebih terukur.",
   },
   {
-    title: "Aman & Terpercaya",
-    desc: "Standar keamanan tinggi & support penuh.",
+    title: "Standar Desain Premium",
+    desc: "Kami menghadirkan tampilan modern dan profesional yang meningkatkan kepercayaan brand Anda.",
+  },
+  {
+    title: "Optimasi SEO & Performance",
+    desc: "Website cepat, SEO-ready, dan siap bersaing di halaman pertama Google.",
+  },
+  {
+    title: "Strategi yang Terarah",
+    desc: "Setiap langkah memiliki tujuan jelas untuk mendukung pertumbuhan bisnis Anda.",
+  },
+  {
+    title: "Partner Jangka Panjang",
+    desc: "Kami tidak hanya membuat, tetapi juga membantu Anda berkembang secara berkelanjutan.",
   },
 ];
 
