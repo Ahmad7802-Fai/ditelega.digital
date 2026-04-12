@@ -1,6 +1,7 @@
 import "./globals.css";
 import { Navbar, Footer } from "@/components";
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 
 /* ========================= */
 /* 🔥 METADATA (SEO) */
@@ -31,7 +32,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Ditelaga Creative Digital" }],
   creator: "Ditelaga Creative Digital",
 
-  /* 🔥 ICONS */
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -40,10 +40,8 @@ export const metadata: Metadata = {
     apple: "/apple-icon.png",
   },
 
-  /* 🔥 PWA */
   manifest: "/site.webmanifest",
 
-  /* 🔥 OPEN GRAPH */
   openGraph: {
     title: "Ditelaga Creative Digital",
     description:
@@ -62,7 +60,6 @@ export const metadata: Metadata = {
     type: "website",
   },
 
-  /* 🔥 TWITTER */
   twitter: {
     card: "summary_large_image",
     title: "Ditelaga Creative Digital",
@@ -71,7 +68,6 @@ export const metadata: Metadata = {
     images: ["/og-image.jpg"],
   },
 
-  /* 🔥 SEO ROBOTS */
   robots: {
     index: true,
     follow: true,
@@ -97,12 +93,30 @@ export default function RootLayout({
 }) {
   return (
     <html lang="id">
-      <body
-        className="
-          bg-white text-gray-900 antialiased
-          overflow-x-hidden
-        "
-      >
+      <body className="bg-white text-gray-900 antialiased overflow-x-hidden">
+
+        {/* ========================= */}
+        {/* 🔥 SCHEMA JSON-LD */}
+        {/* ========================= */}
+        <Script
+          id="schema-org"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              name: "Ditelaga Creative Digital",
+              url: "https://ditelaga.digital",
+              logo: "https://ditelaga.digital/logo.png",
+              sameAs: [
+                "https://instagram.com/ditelaga",
+                "https://facebook.com/ditelaga"
+              ],
+            }),
+          }}
+        />
+
         {/* 🔥 NAVBAR */}
         <Navbar />
 
@@ -113,6 +127,7 @@ export default function RootLayout({
 
         {/* 🔥 FOOTER */}
         <Footer />
+
       </body>
     </html>
   );

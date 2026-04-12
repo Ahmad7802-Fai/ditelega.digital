@@ -43,7 +43,7 @@ export default function Navbar() {
                   src="/logo2.webp"
                   alt="Ditelaga Digital"
                   fill
-                  priority
+                  sizes="180px"
                   className="object-contain transition group-hover:scale-105"
                 />
               </div>

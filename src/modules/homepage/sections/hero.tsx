@@ -72,13 +72,14 @@ export default function Hero() {
 
         <div
           ref={bgRef}
-          className="w-full h-full transition-transform duration-500"
+          className="relative w-full h-full transition-transform duration-500"
         >
           <Image
             src="/hero.webp"
             alt="Hero"
             fill
             priority
+            sizes="100vw"
             className="object-cover"
           />
 
