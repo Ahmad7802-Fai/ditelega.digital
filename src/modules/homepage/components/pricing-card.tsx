@@ -31,42 +31,32 @@ export default function PricingCard({
           transition-all duration-500
           overflow-visible
           `,
+          !isHighlight && "bg-white border border-gray-200",
 
-          // NORMAL
-          !isHighlight &&
-            "bg-white border border-gray-200",
-
-          // 🔥 HIGHLIGHT (CLEAN PREMIUM)
           isHighlight &&
             `
             bg-green-50
             border-2 border-green-500
-
             scale-[1.03]
             -translate-y-2
             z-20
-
-            shadow-none
             `
         )}
       >
-        {/* 🔥 BADGE (FIX POSISI) */}
+
+        {/* 🔥 BADGE */}
         {isHighlight && (
-          <div
-            className="
-              absolute -top-5 left-1/2 -translate-x-1/2
-              bg-green-600 text-white text-xs
-              px-4 py-1.5 rounded-full
-              shadow-[0_8px_20px_rgba(0,0,0,0.12)]
-              z-30
-              whitespace-nowrap
-            "
-          >
+          <div className="
+            absolute -top-5 left-1/2 -translate-x-1/2
+            bg-green-600 text-white text-xs
+            px-4 py-1.5 rounded-full
+            shadow-md
+            z-30
+          ">
             🔥 Paling Laris
           </div>
         )}
 
-        {/* CONTENT */}
         <div className="relative z-10">
 
           {/* TITLE */}
@@ -78,6 +68,13 @@ export default function PricingCard({
           >
             {title}
           </h3>
+
+          {/* 🔥 LABEL STRATEGIS */}
+          {isHighlight && (
+            <p className="text-xs text-green-600 mt-1 font-medium">
+              Pilihan terbaik untuk bisnis berkembang 🚀
+            </p>
+          )}
 
           {/* DESC */}
           <p className="text-sm text-gray-500 mt-2 leading-relaxed">
@@ -109,28 +106,32 @@ export default function PricingCard({
             ))}
           </ul>
 
-          {/* CTA */}
-          {/* CTA */}
-            <div className="mt-8">
-              <a
-                href={`https://wa.me/628177922952?text=${encodeURIComponent(
-                  `Halo, saya tertarik dengan paket ${title} (${price}). Bisa konsultasi lebih lanjut?`
-                )}`}
-                target="_blank"
-                rel="noopener noreferrer"
+          {/* 🔥 CTA (UPGRADED) */}
+          <div className="mt-8">
+            <a
+              href={`https://wa.me/6281779229522?text=${encodeURIComponent(
+                `Halo kak 👋 saya tertarik dengan paket ${title} (${price}). Bisa konsultasi lebih lanjut?`
+              )}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Button
+                variant={isHighlight ? "primary" : "secondary"}
+                className={cn(
+                  "w-full text-sm font-semibold rounded-xl",
+                  isHighlight &&
+                    "bg-green-600 hover:bg-green-700 text-white shadow-md"
+                )}
               >
-                <Button
-                  variant={isHighlight ? "primary" : "secondary"}
-                  className={cn(
-                    "w-full text-sm font-medium rounded-xl",
-                    isHighlight &&
-                      "bg-green-600 hover:bg-green-700 text-white shadow-md"
-                  )}
-                >
-                  Pesan Sekarang
-                </Button>
-              </a>
-            </div>
+                🚀 Konsultasi Gratis
+              </Button>
+            </a>
+
+            {/* 🔥 MICRO TRUST */}
+            <p className="text-xs text-gray-400 mt-2 text-center">
+              Respon cepat • Tanpa komitmen
+            </p>
+          </div>
 
         </div>
       </Card>
