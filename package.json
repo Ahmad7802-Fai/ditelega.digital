@@ -2,12 +2,15 @@
   "name": "ditelaga.digital",
   "version": "0.1.0",
   "private": true,
+
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next start -p 3003 -H 0.0.0.0",
+
     "lint": "eslint"
   },
+
   "dependencies": {
     "@tabler/icons-react": "^3.41.1",
     "axios": "^1.15.0",
@@ -22,6 +25,7 @@
     "tailwind-merge": "^3.5.0",
     "zod": "^4.3.6"
   },
+
   "devDependencies": {
     "@types/node": "^20",
     "@types/react": "^19",
