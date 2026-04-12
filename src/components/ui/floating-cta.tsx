@@ -53,7 +53,7 @@ export function FloatingCTA() {
 
       {/* 🔥 WHATSAPP */}
       <a
-        href={`https://wa.me/628177922952?text=${encodeURIComponent(
+        href={`https://wa.me/6281779229522?text=${encodeURIComponent(
           "Halo kak, saya tertarik dengan layanan Ditelaga Digital. Bisa konsultasi?"
         )}`}
         target="_blank"
