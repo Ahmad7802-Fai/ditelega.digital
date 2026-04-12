@@ -1,5 +1,5 @@
 import "./globals.css";
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, FloatingCTA } from "@/components";
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 
@@ -124,6 +124,9 @@ export default function RootLayout({
         <main className="pt-20 overflow-x-hidden">
           {children}
         </main>
+
+        {/* 🔥 FLOATING CTA (INI YANG KURANG) */}
+        <FloatingCTA />
 
         {/* 🔥 FOOTER */}
         <Footer />

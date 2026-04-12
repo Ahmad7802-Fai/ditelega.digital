@@ -110,18 +110,27 @@ export default function PricingCard({
           </ul>
 
           {/* CTA */}
-          <div className="mt-8">
-            <Button
-              variant={isHighlight ? "primary" : "secondary"}
-              className={cn(
-                "w-full text-sm font-medium rounded-xl",
-                isHighlight &&
-                  "bg-green-600 hover:bg-green-700 text-white shadow-md"
-              )}
-            >
-              Pesan Sekarang
-            </Button>
-          </div>
+          {/* CTA */}
+            <div className="mt-8">
+              <a
+                href={`https://wa.me/628177922952?text=${encodeURIComponent(
+                  `Halo, saya tertarik dengan paket ${title} (${price}). Bisa konsultasi lebih lanjut?`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Button
+                  variant={isHighlight ? "primary" : "secondary"}
+                  className={cn(
+                    "w-full text-sm font-medium rounded-xl",
+                    isHighlight &&
+                      "bg-green-600 hover:bg-green-700 text-white shadow-md"
+                  )}
+                >
+                  Pesan Sekarang
+                </Button>
+              </a>
+            </div>
 
         </div>
       </Card>

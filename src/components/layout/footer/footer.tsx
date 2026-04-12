@@ -43,7 +43,7 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3 group">
 
               {/* LOGO */}
-              <div className="relative w-[40px] h-[40px]">
+              <div className="relative w-[40px] h-[90px]">
                 <Image
                   src="/icon.svg"
                   alt="Ditelaga Digital"
@@ -73,10 +73,11 @@ export default function Footer() {
             <div className="flex gap-4 mt-6">
 
               <a
-                href="https://instagram.com"
-                target="_blank"
-                className="group"
-              >
+                  href="https://instagram.com/ditelaga.idn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                >
                 <div className="
                   p-2 rounded-lg
                   bg-white/5
