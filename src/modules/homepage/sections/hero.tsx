@@ -78,7 +78,7 @@ export default function Hero() {
             src="/hero.webp"
             alt="Hero"
             fill
-            priority
+            // priority
             sizes="100vw"
             className="object-cover"
           />
