@@ -30,7 +30,7 @@ export default function WhyUs() {
         {/* 🔥 HEADING (UPGRADE COPY) */}
         <Heading
           title="Kenapa Bisnis Anda Harus Memilih"
-          highlight="Ditelaga?"
+          highlight="Ditelaga Creative Digital?"
           subtitle="Kami tidak hanya membuat tampilan—kami membangun sistem digital yang meningkatkan kepercayaan, traffic, dan penjualan."
           align="center"
         />
