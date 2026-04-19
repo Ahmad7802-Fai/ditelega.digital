@@ -9,65 +9,109 @@ import SeoModule from "@/modules/services/seo";
 import SocialMediaModule from "@/modules/services/social-media-management";
 import VideoAdsModule from "@/modules/services/video-ads";
 
-export const services = [
+/* 🔥 TYPE (BIAR RAPII & SAFE) */
+export type ServiceItem = {
+  slug: string;
+  title: string;
+  subtitle: string;
+  component: React.ComponentType;
+
+  /* 🔥 BRANDING SYSTEM */
+  icon?: string;
+  ogImage?: string;
+  color?: string;
+};
+
+/* 🔥 MASTER DATA */
+export const services: ServiceItem[] = [
   {
     slug: "seo",
     title: "Jasa SEO Ranking Halaman 1",
     subtitle: "Traffic Organik Naik • Leads Masuk Konsisten",
     component: SeoModule,
+    icon: "/icons/seo.svg",
+    ogImage: "/og/seo.jpg",
+    color: "#16a34a",
   },
   {
     slug: "google-ads",
     title: "Jasa Google Ads Anti Boncos",
     subtitle: "Leads Berkualitas • Budget Lebih Efisien",
     component: GoogleAdsModule,
+    icon: "/icons/google-ads.svg",
+    ogImage: "/og/google-ads.jpg",
+    color: "#2563eb",
   },
   {
     slug: "facebook-ads",
     title: "Jasa Facebook & Instagram Ads",
     subtitle: "Target Tepat • Closing Lebih Tinggi",
     component: FacebookAdsModule,
+    icon: "/icons/facebook-ads.svg",
+    ogImage: "/og/facebook-ads.jpg",
+    color: "#1d4ed8",
   },
   {
     slug: "landing-page",
     title: "Landing Page High Conversion",
     subtitle: "Optimasi Closing • Cocok untuk Ads",
     component: LandingPageModule,
+    icon: "/icons/landing-page.svg",
+    ogImage: "/og/landing.jpg",
+    color: "#22c55e",
   },
   {
     slug: "company-profile",
     title: "Website Company Profile Profesional",
     subtitle: "Brand Lebih Kredibel • Meningkatkan Trust",
     component: CompanyProfileModule,
+    icon: "/icons/company.svg",
+    ogImage: "/og/company-profile.jpg",
+    color: "#0f766e",
   },
   {
     slug: "ecommerce",
     title: "Website E-Commerce Siap Jualan",
     subtitle: "Order Otomatis • Omset Naik",
     component: EcommerceModule,
+    icon: "/icons/ecommerce.svg",
+    ogImage: "/og/ecommerce.jpg",
+    color: "#f59e0b",
   },
   {
     slug: "branding",
     title: "Jasa Branding & Identity Design",
     subtitle: "Brand Lebih Kuat • Lebih Diingat",
     component: BrandingModule,
+    icon: "/icons/branding.svg",
+    ogImage: "/og/branding.jpg",
+    color: "#a855f7",
   },
   {
     slug: "management-system",
     title: "Sistem Management Bisnis Custom",
     subtitle: "Otomatisasi Bisnis • Lebih Efisien",
     component: ManagementSystemModule,
+    icon: "/icons/system.svg",
+    ogImage: "/og/system.jpg",
+    color: "#06b6d4",
   },
   {
     slug: "social-media-management",
     title: "Jasa Social Media Management",
     subtitle: "Engagement Naik • Branding Kuat",
     component: SocialMediaModule,
+    icon: "/icons/social-media.svg",
+    ogImage: "/og/social.jpg",
+    color: "#ec4899",
   },
   {
     slug: "video-ads",
     title: "Jasa Video Ads Marketing",
     subtitle: "Konten Viral • Conversion Tinggi",
     component: VideoAdsModule,
+    icon: "/icons/video.svg",
+    ogImage: "/og/video.jpg",
+    color: "#ef4444",
   },
-] as const;
+];
