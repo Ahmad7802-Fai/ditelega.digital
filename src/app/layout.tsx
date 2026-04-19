@@ -119,10 +119,10 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Ditelaga Creative Digital",
               url: "https://ditelaga.digital",
-              logo: "https://ditelaga.digital/logo.png",
+              logo: "https://ditelaga.digital/og-image-public.jpg",
               sameAs: [
-                "https://instagram.com/ditelaga",
-                "https://facebook.com/ditelaga",
+                "https://instagram.com/ditelaga.idn",
+                "https://facebook.com/ditelaga.id",
               ],
             }),
           }}
