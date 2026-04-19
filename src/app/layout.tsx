@@ -32,6 +32,11 @@ export const metadata: Metadata = {
   authors: [{ name: "Ditelaga Creative Digital" }],
   creator: "Ditelaga Creative Digital",
 
+  /* 🔥 TAMBAHAN PENTING */
+  alternates: {
+    canonical: "https://ditelaga.digital",
+  },
+
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -42,7 +47,7 @@ export const metadata: Metadata = {
 
   manifest: "/site.webmanifest",
 
-  /* 🔥 OPEN GRAPH (WAJIB ABSOLUTE URL) */
+  /* 🔥 OPEN GRAPH */
   openGraph: {
     title: "Ditelaga Creative Digital",
     description:
@@ -70,9 +75,16 @@ export const metadata: Metadata = {
     images: ["https://ditelaga.digital/og-image.jpg"],
   },
 
+  /* 🔥 ROBOTS */
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
