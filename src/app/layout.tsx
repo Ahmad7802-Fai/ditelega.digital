@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   },
 
   other: {
-    "fb:app_id": "1234567890", // optional
+    "fb:app_id": "2741934262857401", // optional
   },
 
   /* 🔥 TWITTER */
