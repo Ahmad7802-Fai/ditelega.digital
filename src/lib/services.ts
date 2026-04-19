@@ -9,23 +9,32 @@ import SeoModule from "@/modules/services/seo";
 import SocialMediaModule from "@/modules/services/social-media-management";
 import VideoAdsModule from "@/modules/services/video-ads";
 
-/* 🔥 TYPE (BIAR RAPII & SAFE) */
+/* ========================= */
+/* 🔥 TYPE (SUPER SCALABLE) */
+/* ========================= */
 export type ServiceItem = {
   slug: string;
-  title: string;
+
+  /* 🔥 UI vs SEO */
+  shortTitle: string; // footer / navbar
+  title: string;      // hero / SEO
   subtitle: string;
+
   component: React.ComponentType;
 
-  /* 🔥 BRANDING SYSTEM */
+  /* 🔥 BRAND SYSTEM */
   icon?: string;
   ogImage?: string;
   color?: string;
 };
 
+/* ========================= */
 /* 🔥 MASTER DATA */
+/* ========================= */
 export const services: ServiceItem[] = [
   {
     slug: "seo",
+    shortTitle: "SEO",
     title: "Jasa SEO Ranking Halaman 1",
     subtitle: "Traffic Organik Naik • Leads Masuk Konsisten",
     component: SeoModule,
@@ -35,6 +44,7 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "google-ads",
+    shortTitle: "Google Ads",
     title: "Jasa Google Ads Anti Boncos",
     subtitle: "Leads Berkualitas • Budget Lebih Efisien",
     component: GoogleAdsModule,
@@ -44,6 +54,7 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "facebook-ads",
+    shortTitle: "Facebook Ads",
     title: "Jasa Facebook & Instagram Ads",
     subtitle: "Target Tepat • Closing Lebih Tinggi",
     component: FacebookAdsModule,
@@ -53,6 +64,7 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "landing-page",
+    shortTitle: "Landing Page",
     title: "Landing Page High Conversion",
     subtitle: "Optimasi Closing • Cocok untuk Ads",
     component: LandingPageModule,
@@ -62,6 +74,7 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "company-profile",
+    shortTitle: "Company Profile",
     title: "Website Company Profile Profesional",
     subtitle: "Brand Lebih Kredibel • Meningkatkan Trust",
     component: CompanyProfileModule,
@@ -71,6 +84,7 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "ecommerce",
+    shortTitle: "E-Commerce",
     title: "Website E-Commerce Siap Jualan",
     subtitle: "Order Otomatis • Omset Naik",
     component: EcommerceModule,
@@ -80,6 +94,7 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "branding",
+    shortTitle: "Branding",
     title: "Jasa Branding & Identity Design",
     subtitle: "Brand Lebih Kuat • Lebih Diingat",
     component: BrandingModule,
@@ -89,6 +104,7 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "management-system",
+    shortTitle: "System",
     title: "Sistem Management Bisnis Custom",
     subtitle: "Otomatisasi Bisnis • Lebih Efisien",
     component: ManagementSystemModule,
@@ -98,6 +114,7 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "social-media-management",
+    shortTitle: "Social Media",
     title: "Jasa Social Media Management",
     subtitle: "Engagement Naik • Branding Kuat",
     component: SocialMediaModule,
@@ -107,6 +124,7 @@ export const services: ServiceItem[] = [
   },
   {
     slug: "video-ads",
+    shortTitle: "Video Ads",
     title: "Jasa Video Ads Marketing",
     subtitle: "Konten Viral • Conversion Tinggi",
     component: VideoAdsModule,
