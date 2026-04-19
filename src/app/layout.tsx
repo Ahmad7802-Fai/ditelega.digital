@@ -42,15 +42,16 @@ export const metadata: Metadata = {
 
   manifest: "/site.webmanifest",
 
+  /* 🔥 OPEN GRAPH (WAJIB ABSOLUTE URL) */
   openGraph: {
     title: "Ditelaga Creative Digital",
     description:
       "Website, SEO, Ads, dan Social Media Management untuk meningkatkan bisnis Anda.",
-    url: "/",
+    url: "https://ditelaga.digital",
     siteName: "Ditelaga Creative Digital",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://ditelaga.digital/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Ditelaga Creative Digital",
@@ -60,12 +61,13 @@ export const metadata: Metadata = {
     type: "website",
   },
 
+  /* 🔥 TWITTER */
   twitter: {
     card: "summary_large_image",
     title: "Ditelaga Creative Digital",
     description:
       "Solusi website dan digital marketing modern untuk bisnis Anda.",
-    images: ["/og-image.jpg"],
+    images: ["https://ditelaga.digital/og-image.jpg"],
   },
 
   robots: {
