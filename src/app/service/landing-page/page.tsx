@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
   /* 🔥 FIX URL */
   alternates: {
-    canonical: "https://ditelaga.digital/services/landing-page",
+    canonical: "https://ditelaga.digital/service/landing-page",
   },
 
   /* 🔥 OPEN GRAPH (WAJIB ABSOLUTE) */
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Jasa Landing Page Premium",
     description:
       "Landing page high-converting untuk Google Ads & Meta Ads.",
-    url: "https://ditelaga.digital/services/landing-page",
+    url: "https://ditelaga.digital/service/landing-page",
     siteName: "Ditelaga Creative Digital",
     images: [
       {

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
   /* 🔥 CANONICAL */
   alternates: {
-    canonical: "https://ditelaga.digital/services/company-profile",
+    canonical: "https://ditelaga.digital/service/company-profile",
   },
 
   /* 🔥 OPEN GRAPH */
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Jasa Website Company Profile Profesional",
     description:
       "Bangun website company profile yang meningkatkan kepercayaan dan penjualan bisnis Anda.",
-    url: "https://ditelaga.digital/services/company-profile",
+    url: "https://ditelaga.digital/service/company-profile",
     siteName: "Ditelaga Creative Digital",
     images: [
       {

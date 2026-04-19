@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
   /* 🔥 CANONICAL */
   alternates: {
-    canonical: "https://ditelaga.digital/services/management-system",
+    canonical: "https://ditelaga.digital/service/management-system",
   },
 
   /* 🔥 OPEN GRAPH */
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Jasa Sistem Manajemen Custom",
     description:
       "Bangun sistem manajemen custom untuk meningkatkan efisiensi dan skalabilitas bisnis Anda.",
-    url: "https://ditelaga.digital/services/management-system",
+    url: "https://ditelaga.digital/service/management-system",
     siteName: "Ditelaga Creative Digital",
     images: [
       {

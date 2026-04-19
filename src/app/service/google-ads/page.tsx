@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
   /* 🔥 CANONICAL */
   alternates: {
-    canonical: "https://ditelaga.digital/services/google-ads",
+    canonical: "https://ditelaga.digital/service/google-ads",
   },
 
   /* 🔥 OPEN GRAPH */
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Jasa Google Ads Profesional",
     description:
       "Iklan Google Ads yang tepat sasaran untuk meningkatkan leads dan penjualan bisnis Anda.",
-    url: "https://ditelaga.digital/services/google-ads",
+    url: "https://ditelaga.digital/service/google-ads",
     siteName: "Ditelaga Creative Digital",
     images: [
       {

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
   /* 🔥 CANONICAL */
   alternates: {
-    canonical: "https://ditelaga.digital/services/video-ads",
+    canonical: "https://ditelaga.digital/service/video-ads",
   },
 
   /* 🔥 OPEN GRAPH */
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Jasa Video Ads Profesional",
     description:
       "Video iklan yang menarik perhatian dan meningkatkan conversion bisnis Anda.",
-    url: "https://ditelaga.digital/services/video-ads",
+    url: "https://ditelaga.digital/service/video-ads",
     siteName: "Ditelaga Creative Digital",
     images: [
       {

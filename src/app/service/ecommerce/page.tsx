@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
   /* 🔥 CANONICAL */
   alternates: {
-    canonical: "https://ditelaga.digital/services/ecommerce",
+    canonical: "https://ditelaga.digital/service/ecommerce",
   },
 
   /* 🔥 OPEN GRAPH */
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Jasa Website E-Commerce Profesional",
     description:
       "Bangun toko online yang siap jualan, cepat, dan menghasilkan omzet untuk bisnis Anda.",
-    url: "https://ditelaga.digital/services/ecommerce",
+    url: "https://ditelaga.digital/service/ecommerce",
     siteName: "Ditelaga Creative Digital",
     images: [
       {

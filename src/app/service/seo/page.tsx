@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
   /* 🔥 CANONICAL */
   alternates: {
-    canonical: "https://ditelaga.digital/services/seo",
+    canonical: "https://ditelaga.digital/service/seo",
   },
 
   /* 🔥 OPEN GRAPH */
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Jasa SEO Profesional",
     description:
       "Optimasi SEO untuk meningkatkan ranking Google dan mendatangkan traffic berkualitas.",
-    url: "https://ditelaga.digital/services/seo",
+    url: "https://ditelaga.digital/service/seo",
     siteName: "Ditelaga Creative Digital",
     images: [
       {

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
   /* 🔥 CANONICAL */
   alternates: {
-    canonical: "https://ditelaga.digital/services/social-media-management",
+    canonical: "https://ditelaga.digital/service/social-media-management",
   },
 
   /* 🔥 OPEN GRAPH */
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
     title: "Jasa Social Media Management Profesional",
     description:
       "Kelola Instagram & TikTok bisnis Anda dengan strategi konten yang menghasilkan engagement dan penjualan.",
-    url: "https://ditelaga.digital/services/social-media-management",
+    url: "https://ditelaga.digital/service/social-media-management",
     siteName: "Ditelaga Creative Digital",
     images: [
       {
