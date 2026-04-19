@@ -66,6 +66,10 @@ export const metadata: Metadata = {
     type: "website",
   },
 
+  other: {
+    "fb:app_id": "1234567890", // optional
+  },
+
   /* 🔥 TWITTER */
   twitter: {
     card: "summary_large_image",
