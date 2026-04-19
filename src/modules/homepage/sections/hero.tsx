@@ -2,200 +2,207 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { Button } from "@/components";
 
-export default function Hero() {
+export default function HeroHybrid() {
   const glassRef = useRef<HTMLDivElement>(null);
-  const bgRef = useRef<HTMLDivElement>(null);
+  const floatRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const el = glassRef.current;
-    const bg = bgRef.current;
-    if (!el) return;
+    const float = floatRef.current;
 
-    let autoX = 50;
-    let autoY = 50;
+    if (!el || !float) return;
 
-    const update = (x: number, y: number) => {
+    let x = 50;
+    let y = 50;
+
+    // 🔥 AUTO GLOW
+    const interval = setInterval(() => {
+      x += (Math.random() - 0.5) * 6;
+      y += (Math.random() - 0.5) * 6;
+
+      x = Math.max(20, Math.min(80, x));
+      y = Math.max(20, Math.min(80, y));
+
       el.style.setProperty("--x", `${x}%`);
       el.style.setProperty("--y", `${y}%`);
-    };
-
-    // AUTO GLOW
-    const interval = setInterval(() => {
-      autoX += (Math.random() - 0.5) * 8;
-      autoY += (Math.random() - 0.5) * 8;
-
-      autoX = Math.max(20, Math.min(80, autoX));
-      autoY = Math.max(20, Math.min(80, autoY));
-
-      update(autoX, autoY);
     }, 1200);
 
-    const isMobile = window.innerWidth < 768;
-
-    // MOUSE PARALLAX (DESKTOP ONLY)
+    // 🔥 PARALLAX FLOATING 3D
     const handleMouse = (e: MouseEvent) => {
-      if (isMobile) return;
+      const { innerWidth, innerHeight } = window;
 
-      const rect = el.getBoundingClientRect();
+      const moveX = (e.clientX / innerWidth - 0.5) * 40;
+      const moveY = (e.clientY / innerHeight - 0.5) * 40;
 
-      const x = ((e.clientX - rect.left) / rect.width) * 100;
-      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      float.style.transform = `
+        translate(${moveX}px, ${moveY}px)
+        translateY(-50%)
+        rotateX(${moveY * -0.2}deg)
+        rotateY(${moveX * 0.2}deg)
+      `;
 
-      update(x, y);
-
-      if (bg) {
-        const moveX = (e.clientX / window.innerWidth - 0.5) * 30;
-        const moveY = (e.clientY / window.innerHeight - 0.5) * 30;
-
-        bg.style.transform = `
-          translate(${moveX}px, ${moveY}px)
-          scale(1.06)
-        `;
-      }
+      float.style.boxShadow = `
+        ${-moveX * 1.5}px ${20 + moveY * 2}px 120px rgba(0,0,0,0.6)
+      `;
     };
 
-    el.addEventListener("mousemove", handleMouse);
+    window.addEventListener("mousemove", handleMouse);
 
     return () => {
       clearInterval(interval);
-      el.removeEventListener("mousemove", handleMouse);
+      window.removeEventListener("mousemove", handleMouse);
     };
   }, []);
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
+    <section className="relative min-h-screen pt-28 lg:pt-32 overflow-hidden">
 
-      {/* 🔥 BACKGROUND WRAPPER (CLIPPED) */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* 🔥 BACKGROUND */}
+      <div className="absolute inset-0 -z-10">
+        <Image
+          src="/hero.webp"
+          alt="Hero"
+          fill
+          className="object-cover"
+        />
 
-        <div
-          ref={bgRef}
-          className="relative w-full h-full transition-transform duration-500"
-        >
-          <Image
-            src="/hero.webp"
-            alt="Hero"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover"
-          />
-
-          {/* OVERLAY */}
-          <div className="absolute inset-0 bg-black/60" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
-
-          {/* EXTRA DEPTH */}
-          <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 via-transparent to-transparent" />
-
-          {/* 🔥 GLOW (FULL SIZE, TAPI TER-CLIP) */}
-          <div className="
-            absolute
-            -left-40
-            top-1/2 -translate-y-1/2
-            w-[500px] h-[500px]
-            bg-green-500/20 blur-[140px] rounded-full
-            pointer-events-none
-          " />
-        </div>
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-green-500/10 to-transparent" />
       </div>
 
       {/* 🔥 CONTENT */}
-      <div className="relative z-10 w-full px-5 sm:px-6 md:px-12 lg:px-20">
-        <div className="grid lg:grid-cols-2 items-center gap-12 min-h-[90vh]">
+      <div className="px-5 sm:px-8 lg:px-16">
+        <div className="grid lg:grid-cols-2 gap-10 items-center min-h-[85vh] relative">
 
-          {/* LEFT */}
+          {/* ================= LEFT ================= */}
           <div className="flex justify-center lg:justify-start">
             <div
               ref={glassRef}
               className="
-                w-full max-w-[520px]
+                w-full max-w-[620px]
                 rounded-3xl
-                p-6 sm:p-8 md:p-10
+                p-8 sm:p-10 md:p-12 lg:p-14
                 backdrop-blur-2xl
                 border border-white/10
-                shadow-[0_30px_100px_rgba(0,0,0,0.35)]
+                shadow-[0_30px_100px_rgba(0,0,0,0.4)]
               "
               style={{
                 background:
-                  "radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.25), rgba(255,255,255,0.05) 40%)",
+                  "radial-gradient(circle at var(--x,50%) var(--y,50%), rgba(255,255,255,0.15), rgba(255,255,255,0.03) 45%)",
               }}
             >
-              <div className="text-white text-center lg:text-left">
+              <div className="text-white">
 
-                <h1 className="
-                  text-3xl sm:text-4xl md:text-5xl lg:text-6xl
-                  leading-tight font-semibold
-                ">
-                  Solusi Digital Untuk{" "}
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] tracking-tight font-semibold">
+                  Naikkan Omset Bisnis
+                  <br />
                   <span className="text-green-400">
-                    Pertumbuhan Bisnis
+                    Hingga 3x Lipat
                   </span>
+                  <br />
+                  dengan Website &
+                  <br />
+                  Digital Marketing
                 </h1>
 
-                <p className="
-                  mt-5 text-sm sm:text-base md:text-lg
-                  text-white/80 leading-relaxed
-                ">
-                  Website profesional & digital strategy untuk membantu bisnis Anda berkembang lebih cepat.
+                <p className="mt-6 text-white/80 max-w-[520px]">
+                  Kami bantu bisnis Anda mendapatkan lebih banyak leads,
+                  closing, dan repeat customer secara konsisten.
                 </p>
 
-                <div className="
-                  mt-8 flex flex-col sm:flex-row gap-4
-                  justify-center lg:justify-start
-                ">
-                  <Button>
-                    Konsultasi Gratis
-                  </Button>
+                <div className="mt-8 flex flex-col sm:flex-row gap-4">
+                  <Link href="/contact">
+                    <Button
+                      className="
+                        px-6 py-3 rounded-xl text-white font-medium
+                        bg-gradient-to-r from-green-400 via-emerald-500 to-green-500
+                        shadow-[0_0_30px_rgba(34,197,94,0.5)]
+                        hover:scale-[1.03] transition
+                      "
+                    >
+                      🚀 Konsultasi Gratis
+                    </Button>
+                  </Link>
 
-                  <button className="
-                    px-6 py-3
-                    border border-white/20
-                    rounded-xl text-white
-                    hover:bg-white/10 transition
-                  ">
-                    Lihat Portfolio
-                  </button>
+                  <Link href="/portfolio">
+                    <button className="px-6 py-3 border border-white/20 rounded-xl text-white hover:bg-white/10">
+                      Lihat Portfolio
+                    </button>
+                  </Link>
                 </div>
 
-                <div className="
-                  mt-8 flex flex-col sm:flex-row
-                  items-center gap-2 sm:gap-6
-                  text-xs sm:text-sm text-white/60
-                ">
-                  <span>✔️ Dipercaya 100+ bisnis</span>
-                  <span className="hidden sm:block w-1 h-1 bg-white/40 rounded-full"></span>
-                  <span>✔️ Garansi hasil</span>
-                </div>
+                <p className="mt-4 text-green-400 text-xs">
+                  🔥 Slot terbatas minggu ini
+                </p>
 
               </div>
             </div>
           </div>
 
-          {/* RIGHT FLOATING UI */}
+          {/* ================= RIGHT FLOATING 3D ================= */}
           <div className="relative hidden lg:block">
-            <div className="relative w-[400px] h-[400px]">
 
-              <div className="absolute top-0 right-10 w-[220px] bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.15)] rotate-[-8deg] animate-[float_6s_ease-in-out_infinite]">
-                <p className="text-sm font-semibold text-gray-800">Dashboard</p>
-                <p className="text-xs text-gray-500 mt-1">Analytics & Growth</p>
-                <div className="mt-3 h-20 bg-gradient-to-r from-green-200 to-green-400 rounded-lg"></div>
+            {/* GLOW */}
+            <div className="absolute right-10 top-1/2 -translate-y-1/2 w-[320px] h-[320px] bg-green-500/20 blur-[120px] rounded-full" />
+
+            {/* CARD */}
+            <div
+              ref={floatRef}
+              className="
+                absolute right-0 top-1/2 -translate-y-1/2
+                w-[420px]
+                rounded-3xl
+                p-6 sm:p-8
+                bg-white/5
+                backdrop-blur-xl
+                border border-white/10
+                transition-transform duration-200 ease-out
+              "
+            >
+
+              <div className="relative w-full h-[160px] rounded-xl overflow-hidden">
+                <Image
+                  src="/hero.webp"
+                  alt="Preview"
+                  fill
+                  className="object-cover"
+                />
               </div>
 
-              <div className="absolute top-[110px] left-[40px] z-10 w-[260px] bg-white rounded-2xl p-5 shadow-[0_30px_80px_rgba(0,0,0,0.2)] animate-[float_5s_ease-in-out_infinite]">
-                <p className="text-sm font-semibold text-gray-800">UI Preview</p>
-                <div className="mt-3 h-32 bg-gray-100 rounded-lg"></div>
+              <div className="mt-6 text-white">
+                <h2 className="text-2xl font-semibold">
+                  Mau Leads Masuk Setiap Hari?
+                </h2>
+
+                <p className="text-sm text-white/70 mt-3">
+                  Kami bantu setup sistem digital marketing yang menghasilkan
+                  leads otomatis untuk bisnis Anda.
+                </p>
               </div>
 
-              <div className="absolute bottom-0 right-0 w-[200px] bg-white/90 backdrop-blur-md rounded-2xl p-4 shadow-[0_20px_60px_rgba(0,0,0,0.15)] rotate-[10deg] animate-[float_7s_ease-in-out_infinite]">
-                <p className="text-sm font-semibold text-gray-800">Marketing</p>
-                <p className="text-xs text-gray-500 mt-1">Ads & SEO</p>
-                <div className="mt-3 h-16 bg-gradient-to-r from-blue-200 to-blue-400 rounded-lg"></div>
+              <div className="mt-6">
+                <Link href="/contact">
+                  <Button className="
+                    w-full
+                    bg-gradient-to-r
+                    from-green-400 to-emerald-500
+                    shadow-[0_0_30px_rgba(34,197,94,0.6)]
+                  ">
+                    💬 Chat WhatsApp Sekarang
+                  </Button>
+                </Link>
+
+                <p className="text-xs text-green-400 mt-3">
+                  ⚡ Respon cepat (±5 menit)
+                </p>
               </div>
 
             </div>
+
           </div>
 
         </div>

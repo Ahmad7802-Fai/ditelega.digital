@@ -121,7 +121,7 @@ export default function RootLayout({
         <Navbar />
 
         {/* 🔥 MAIN */}
-        <main className="pt-20 overflow-x-hidden">
+        <main className="overflow-x-hidden">
           {children}
         </main>
 
