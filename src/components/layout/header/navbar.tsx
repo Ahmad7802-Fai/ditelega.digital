@@ -86,6 +86,7 @@ export default function Navbar() {
 
             {/* 🔥 CTA DESKTOP */}
             <div className="hidden md:block">
+              <Link href="/contact">
               <button
                 className={`
                   px-5 py-2.5 rounded-xl font-medium transition-all duration-300
@@ -99,6 +100,7 @@ export default function Navbar() {
               >
                 Hubungi Kami
               </button>
+              </Link>
             </div>
 
             {/* 🔥 MOBILE BUTTON */}
