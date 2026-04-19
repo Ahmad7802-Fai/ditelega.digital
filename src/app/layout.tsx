@@ -4,7 +4,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 
 /* ========================= */
-/* 🔥 METADATA (SEO) */
+/* 🔥 METADATA (GLOBAL DEFAULT) */
 /* ========================= */
 
 export const metadata: Metadata = {
@@ -32,11 +32,12 @@ export const metadata: Metadata = {
   authors: [{ name: "Ditelaga Creative Digital" }],
   creator: "Ditelaga Creative Digital",
 
-  /* 🔥 TAMBAHAN PENTING */
+  /* 🔥 CANONICAL */
   alternates: {
     canonical: "https://ditelaga.digital",
   },
 
+  /* 🔥 ICONS */
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -47,36 +48,28 @@ export const metadata: Metadata = {
 
   manifest: "/site.webmanifest",
 
-  /* 🔥 OPEN GRAPH */
+  /* 🔥 OPEN GRAPH (TANPA IMAGE — BIAR DYNAMIC) */
   openGraph: {
     title: "Ditelaga Creative Digital",
     description:
       "Website, SEO, Ads, dan Social Media Management untuk meningkatkan bisnis Anda.",
     url: "https://ditelaga.digital",
     siteName: "Ditelaga Creative Digital",
-    images: [
-      {
-        url: "https://ditelaga.digital/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Ditelaga Creative Digital",
-      },
-    ],
     locale: "id_ID",
     type: "website",
   },
 
+  /* 🔥 FACEBOOK APP (OPTIONAL) */
   other: {
-    "fb:app_id": "2741934262857401", // optional
+    "fb:app_id": "2741934262857401",
   },
 
-  /* 🔥 TWITTER */
+  /* 🔥 TWITTER (TANPA IMAGE) */
   twitter: {
     card: "summary_large_image",
     title: "Ditelaga Creative Digital",
     description:
       "Solusi website dan digital marketing modern untuk bisnis Anda.",
-    images: ["https://ditelaga.digital/og-image.jpg"],
   },
 
   /* 🔥 ROBOTS */
@@ -129,7 +122,7 @@ export default function RootLayout({
               logo: "https://ditelaga.digital/logo.png",
               sameAs: [
                 "https://instagram.com/ditelaga",
-                "https://facebook.com/ditelaga"
+                "https://facebook.com/ditelaga",
               ],
             }),
           }}
@@ -143,7 +136,7 @@ export default function RootLayout({
           {children}
         </main>
 
-        {/* 🔥 FLOATING CTA (INI YANG KURANG) */}
+        {/* 🔥 FLOATING CTA */}
         <FloatingCTA />
 
         {/* 🔥 FOOTER */}
