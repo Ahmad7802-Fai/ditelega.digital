@@ -15,106 +15,120 @@ export function generateOG({ title, subtitle }: OGProps) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "60px",
-          background:
-            "linear-gradient(135deg, #020617, #022c22, #064e3b)",
+          padding: "64px",
+          background: "#020617",
           color: "white",
-          fontFamily: "sans-serif",
+          fontFamily: "Inter, sans-serif",
           position: "relative",
         }}
       >
-        {/* ================= BACKGROUND GLOW ================= */}
+        {/* === GRID BACKGROUND === */}
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+
+        {/* === GLOW 1 === */}
+        <div
+          style={{
+            position: "absolute",
+            width: 600,
+            height: 600,
+            background: "#10b981",
+            opacity: 0.12,
+            filter: "blur(160px)",
+            top: -200,
+            left: -200,
+            borderRadius: "50%",
+          }}
+        />
+
+        {/* === GLOW 2 === */}
         <div
           style={{
             position: "absolute",
             width: 500,
             height: 500,
-            background: "#22c55e",
-            opacity: 0.2,
-            filter: "blur(120px)",
-            top: -120,
-            left: -120,
+            background: "#22d3ee",
+            opacity: 0.08,
+            filter: "blur(180px)",
+            bottom: -200,
+            right: -200,
             borderRadius: "50%",
           }}
         />
 
-        {/* ================= TOP (LOGO + BADGE) ================= */}
+        {/* === TOP BAR === */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
+            zIndex: 2,
           }}
         >
-          {/* 🔥 LOGO + BRAND */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 14,
-            }}
-          >
+          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
             <img
               src="https://ditelaga.digital/og-image-public.jpg"
-              width="42"
-              height="42"
-              style={{
-                objectFit: "contain",
-              }}
+              width="40"
+              height="40"
+              style={{ borderRadius: 12 }}
             />
-
-            <span
-              style={{
-                fontSize: 26,
-                fontWeight: 600,
-              }}
-            >
-              Ditelaga Creative Digital
+            <span style={{ fontSize: 24, fontWeight: 600 }}>
+              Ditelaga Digital
             </span>
           </div>
 
-          {/* 🔥 TRUST BADGE */}
+          {/* Glass Badge */}
           <div
             style={{
-              fontSize: 18,
+              fontSize: 16,
               padding: "8px 16px",
               borderRadius: 999,
-              background: "rgba(34,197,94,0.15)",
-              border: "1px solid rgba(34,197,94,0.4)",
+              background: "rgba(255,255,255,0.05)",
+              border: "1px solid rgba(255,255,255,0.12)",
+              backdropFilter: "blur(12px)",
             }}
           >
             ⭐ Trusted by 100+ Clients
           </div>
         </div>
 
-        {/* ================= CONTENT ================= */}
+        {/* === CONTENT === */}
         <div
           style={{
-            maxWidth: 900,
-            display: "flex",
-            flexDirection: "column",
+            maxWidth: 820,
+            zIndex: 2,
           }}
         >
-          {/* 🔥 TITLE */}
           <h1
             style={{
-              fontSize: 64,
-              fontWeight: 700,
-              lineHeight: 1.1,
-              letterSpacing: "-0.02em",
+              fontSize: 72,
+              fontWeight: 800,
+              lineHeight: 1.05,
+              letterSpacing: "-0.04em",
+              background:
+                "linear-gradient(90deg, #ffffff 0%, #a7f3d0 50%, #67e8f9 100%)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
             }}
           >
             {title}
           </h1>
 
-          {/* 🔥 SUBTITLE */}
           {subtitle && (
             <p
               style={{
                 fontSize: 28,
-                marginTop: 24,
-                opacity: 0.85,
-                lineHeight: 1.4,
+                marginTop: 28,
+                color: "#94a3b8",
+                maxWidth: 700,
+                lineHeight: 1.5,
               }}
             >
               {subtitle}
@@ -122,19 +136,20 @@ export function generateOG({ title, subtitle }: OGProps) {
           )}
         </div>
 
-        {/* ================= FOOTER ================= */}
+        {/* === FOOTER === */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            alignItems: "center",
-            fontSize: 18,
-            opacity: 0.7,
+            fontSize: 16,
+            color: "#64748b",
+            zIndex: 2,
           }}
         >
           <span>https://ditelaga.digital</span>
-
-          <span>🚀 Digital Growth Partner</span>
+          <span style={{ color: "#facc15" }}>
+            🚀 Digital Growth Partner
+          </span>
         </div>
       </div>
     ),
