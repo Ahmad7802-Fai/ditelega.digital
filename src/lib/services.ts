@@ -12,6 +12,12 @@ import VideoAdsModule from "@/modules/services/video-ads";
 /* ========================= */
 /* 🔥 TYPE */
 /* ========================= */
+
+export type FAQItem = {
+  question: string;
+  answer: string;
+};
+
 export type ServiceItem = {
   slug: string;
 
@@ -22,13 +28,17 @@ export type ServiceItem = {
   component: React.ComponentType;
 
   icon?: string;
-  ogImage: string; // 🔥 WAJIB
+  ogImage: string;
   color?: string;
+
+  /* 🔥 SEO BOOST */
+  faq?: FAQItem[];
 };
 
 /* ========================= */
 /* 🔥 DATA */
 /* ========================= */
+
 export const services: ServiceItem[] = [
   {
     slug: "seo",
@@ -39,7 +49,21 @@ export const services: ServiceItem[] = [
     icon: "/icons/seo.svg",
     ogImage: "/og/seo.jpg",
     color: "#16a34a",
+
+    faq: [
+      {
+        question: "Berapa lama hasil SEO terlihat?",
+        answer:
+          "Biasanya 3–6 bulan tergantung tingkat kompetisi dan kondisi website.",
+      },
+      {
+        question: "Apakah SEO aman untuk jangka panjang?",
+        answer:
+          "Ya, SEO adalah strategi organik yang aman dan berkelanjutan jika dilakukan dengan benar.",
+      },
+    ],
   },
+
   {
     slug: "google-ads",
     shortTitle: "Google Ads",
@@ -49,7 +73,21 @@ export const services: ServiceItem[] = [
     icon: "/icons/google-ads.svg",
     ogImage: "/og/google-ads.jpg",
     color: "#2563eb",
+
+    faq: [
+      {
+        question: "Berapa budget minimal Google Ads?",
+        answer:
+          "Budget fleksibel, namun ideal mulai dari 3–5 juta per bulan untuk hasil optimal.",
+      },
+      {
+        question: "Apakah Google Ads langsung dapat hasil?",
+        answer:
+          "Ya, Google Ads bisa langsung menghasilkan traffic dan leads dalam waktu cepat.",
+      },
+    ],
   },
+
   {
     slug: "facebook-ads",
     shortTitle: "Facebook Ads",
@@ -60,6 +98,7 @@ export const services: ServiceItem[] = [
     ogImage: "/og/facebook-ads.jpg",
     color: "#1d4ed8",
   },
+
   {
     slug: "landing-page",
     shortTitle: "Landing Page",
@@ -67,9 +106,18 @@ export const services: ServiceItem[] = [
     subtitle: "Optimasi Closing • Cocok untuk Ads",
     component: LandingPageModule,
     icon: "/icons/landing-page.svg",
-    ogImage: "/og/landing-page.jpg", // 🔥 FIX
+    ogImage: "/og/landing-page.jpg",
     color: "#22c55e",
+
+    faq: [
+      {
+        question: "Apa beda landing page dan website biasa?",
+        answer:
+          "Landing page fokus pada conversion (jualan), sedangkan website lebih ke informasi.",
+      },
+    ],
   },
+
   {
     slug: "company-profile",
     shortTitle: "Company Profile",
@@ -80,6 +128,7 @@ export const services: ServiceItem[] = [
     ogImage: "/og/company-profile.jpg",
     color: "#0f766e",
   },
+
   {
     slug: "ecommerce",
     shortTitle: "E-Commerce",
@@ -90,6 +139,7 @@ export const services: ServiceItem[] = [
     ogImage: "/og/ecommerce.jpg",
     color: "#f59e0b",
   },
+
   {
     slug: "branding",
     shortTitle: "Branding",
@@ -100,6 +150,7 @@ export const services: ServiceItem[] = [
     ogImage: "/og/branding.jpg",
     color: "#a855f7",
   },
+
   {
     slug: "management-system",
     shortTitle: "System",
@@ -110,6 +161,7 @@ export const services: ServiceItem[] = [
     ogImage: "/og/system.jpg",
     color: "#06b6d4",
   },
+
   {
     slug: "social-media-management",
     shortTitle: "Social Media",
@@ -120,6 +172,7 @@ export const services: ServiceItem[] = [
     ogImage: "/og/social.jpg",
     color: "#ec4899",
   },
+
   {
     slug: "video-ads",
     shortTitle: "Video Ads",

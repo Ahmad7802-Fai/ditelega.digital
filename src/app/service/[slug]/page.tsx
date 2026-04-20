@@ -1,9 +1,10 @@
 import { services } from "@/lib/services";
 import { notFound } from "next/navigation";
-import { generateServiceMetadata } from "@/lib/seo";
+import { generateServiceMetadata, generateServiceSchema } from "@/lib/seo";
 import type { Metadata } from "next";
+import Script from "next/script";
 
-/* 🔥 AUTO METADATA */
+/* 🔥 METADATA */
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
@@ -29,5 +30,20 @@ export default async function Page(
 
   const Component = service.component;
 
-  return <Component />;
+  const schema = generateServiceSchema(service);
+
+  return (
+    <>
+      {/* 🔥 JSON-LD */}
+      <Script
+        id="schema-service"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(schema),
+        }}
+      />
+
+      <Component />
+    </>
+  );
 }

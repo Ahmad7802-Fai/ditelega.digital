@@ -1,13 +1,75 @@
 import { ImageResponse } from "next/og";
 
-export const contentType = "image/png"; // 🔥 WAJIB
+export const contentType = "image/png";
+
+/* 🔥 warna per service (lebih terang + hidup) */
+const SERVICE_THEME: Record<string, any> = {
+  seo: {
+    bg: "linear-gradient(135deg, #020617 0%, #052e16 40%, #16a34a 100%)",
+    accent: "#22c55e",
+    glow: "rgba(34,197,94,0.5)",
+  },
+  "google-ads": {
+    bg: "linear-gradient(135deg, #020617 0%, #1e3a8a 40%, #2563eb 100%)",
+    accent: "#3b82f6",
+    glow: "rgba(59,130,246,0.5)",
+  },
+  "facebook-ads": {
+    bg: "linear-gradient(135deg, #020617 0%, #1e40af 40%, #1d4ed8 100%)",
+    accent: "#60a5fa",
+    glow: "rgba(96,165,250,0.5)",
+  },
+  "landing-page": {
+    bg: "linear-gradient(135deg, #020617 0%, #14532d 40%, #22c55e 100%)",
+    accent: "#4ade80",
+    glow: "rgba(74,222,128,0.5)",
+  },
+  "company-profile": {
+    bg: "linear-gradient(135deg, #020617 0%, #134e4a 40%, #0f766e 100%)",
+    accent: "#2dd4bf",
+    glow: "rgba(45,212,191,0.5)",
+  },
+  ecommerce: {
+    bg: "linear-gradient(135deg, #020617 0%, #78350f 40%, #f59e0b 100%)",
+    accent: "#fbbf24",
+    glow: "rgba(251,191,36,0.5)",
+  },
+  branding: {
+    bg: "linear-gradient(135deg, #020617 0%, #581c87 40%, #a855f7 100%)",
+    accent: "#c084fc",
+    glow: "rgba(192,132,252,0.5)",
+  },
+  "management-system": {
+    bg: "linear-gradient(135deg, #020617 0%, #164e63 40%, #06b6d4 100%)",
+    accent: "#22d3ee",
+    glow: "rgba(34,211,238,0.5)",
+  },
+  "social-media-management": {
+    bg: "linear-gradient(135deg, #020617 0%, #831843 40%, #ec4899 100%)",
+    accent: "#f472b6",
+    glow: "rgba(244,114,182,0.5)",
+  },
+  "video-ads": {
+    bg: "linear-gradient(135deg, #020617 0%, #7f1d1d 40%, #ef4444 100%)",
+    accent: "#f87171",
+    glow: "rgba(248,113,113,0.5)",
+  },
+  default: {
+    bg: "linear-gradient(135deg, #020617 0%, #052e16 40%, #16a34a 100%)",
+    accent: "#22c55e",
+    glow: "rgba(34,197,94,0.5)",
+  },
+};
 
 type OGProps = {
   title: string;
   subtitle?: string;
+  service?: string;
 };
 
-export function generateOG({ title, subtitle }: OGProps) {
+export function generateOG({ title, subtitle, service }: OGProps) {
+  const theme = SERVICE_THEME[service || ""] || SERVICE_THEME.default;
+
   return new ImageResponse(
     (
       <div
@@ -17,139 +79,105 @@ export function generateOG({ title, subtitle }: OGProps) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          padding: "64px",
-          background: "#020617",
+          padding: "70px",
+          background: theme.bg,
           color: "white",
-          fontFamily: "Inter, sans-serif",
+          fontFamily: "sans-serif",
           position: "relative",
+          overflow: "hidden",
         }}
       >
-        {/* 🔥 GRID BACKGROUND */}
+        {/* 🔥 GLOW KANAN */}
         <div
           style={{
             position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-            backgroundSize: "40px 40px",
+            width: 700,
+            height: 700,
+            background: theme.glow,
+            borderRadius: "50%",
+            filter: "blur(140px)",
+            top: -150,
+            right: -150,
           }}
         />
 
-        {/* 🔥 GLOW LEFT */}
+        {/* 🔥 GLOW KIRI */}
         <div
           style={{
             position: "absolute",
             width: 600,
             height: 600,
-            background: "#10b981",
-            opacity: 0.12,
+            background: theme.accent,
+            opacity: 0.25,
+            borderRadius: "50%",
             filter: "blur(160px)",
-            top: -200,
-            left: -200,
-            borderRadius: "50%",
+            bottom: -150,
+            left: -150,
           }}
         />
 
-        {/* 🔥 GLOW RIGHT */}
-        <div
-          style={{
-            position: "absolute",
-            width: 500,
-            height: 500,
-            background: "#22d3ee",
-            opacity: 0.08,
-            filter: "blur(180px)",
-            bottom: -200,
-            right: -200,
-            borderRadius: "50%",
-          }}
-        />
-
-        {/* 🔥 TOP BAR */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            zIndex: 2,
-          }}
-        >
-          {/* BRAND TEXT ONLY (AMAN) */}
+        {/* TOP */}
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
           <div
             style={{
-              fontSize: 26,
+              fontSize: 30,
               fontWeight: 700,
-              letterSpacing: "-0.02em",
+              opacity: 0.9,
             }}
           >
             Ditelaga Creative Digital
           </div>
 
-          {/* BADGE */}
           <div
             style={{
-              fontSize: 16,
+              fontSize: 18,
               padding: "8px 16px",
               borderRadius: 999,
-              background: "rgba(255,255,255,0.05)",
-              border: "1px solid rgba(255,255,255,0.12)",
+              background: "rgba(255,255,255,0.15)",
             }}
           >
-            ⭐ Trusted by 100+ Clients
+            ⭐ Trusted
           </div>
         </div>
 
-        {/* 🔥 CONTENT */}
-        <div
-          style={{
-            maxWidth: 820,
-            zIndex: 2,
-          }}
-        >
-          <h1
+        {/* CONTENT */}
+        <div style={{ display: "flex", flexDirection: "column", maxWidth: 900 }}>
+          <div
             style={{
               fontSize: 72,
               fontWeight: 800,
               lineHeight: 1.05,
-              letterSpacing: "-0.04em",
-              background:
-                "linear-gradient(90deg, #ffffff 0%, #a7f3d0 50%, #67e8f9 100%)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
+              letterSpacing: "-1px",
+              textShadow: "0 6px 30px rgba(0,0,0,0.4)",
             }}
           >
             {title}
-          </h1>
+          </div>
 
           {subtitle && (
-            <p
+            <div
               style={{
-                fontSize: 28,
-                marginTop: 28,
-                color: "#94a3b8",
-                maxWidth: 700,
-                lineHeight: 1.5,
+                fontSize: 30,
+                marginTop: 24,
+                color: "rgba(255,255,255,0.85)",
               }}
             >
               {subtitle}
-            </p>
+            </div>
           )}
         </div>
 
-        {/* 🔥 FOOTER */}
+        {/* FOOTER */}
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            fontSize: 16,
-            color: "#64748b",
-            zIndex: 2,
+            fontSize: 18,
+            color: "rgba(255,255,255,0.7)",
           }}
         >
-          <span>https://ditelaga.digital</span>
-          <span style={{ color: "#facc15" }}>
-            🚀 Digital Growth Partner
-          </span>
+          <div>https://ditelaga.digital</div>
+          <div>🚀 Growth Partner</div>
         </div>
       </div>
     ),
