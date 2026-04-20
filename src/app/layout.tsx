@@ -4,7 +4,7 @@ import type { Metadata, Viewport } from "next";
 import Script from "next/script";
 
 /* ========================= */
-/* 🔥 METADATA (GLOBAL DEFAULT) */
+/* 🔥 METADATA GLOBAL */
 /* ========================= */
 
 export const metadata: Metadata = {
@@ -32,12 +32,16 @@ export const metadata: Metadata = {
   authors: [{ name: "Ditelaga Creative Digital" }],
   creator: "Ditelaga Creative Digital",
 
+  /* ========================= */
   /* 🔥 CANONICAL */
+  /* ========================= */
   alternates: {
     canonical: "https://ditelaga.digital",
   },
 
+  /* ========================= */
   /* 🔥 ICONS */
+  /* ========================= */
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -48,7 +52,9 @@ export const metadata: Metadata = {
 
   manifest: "/site.webmanifest",
 
-  /* 🔥 OPEN GRAPH (TANPA IMAGE — BIAR DYNAMIC) */
+  /* ========================= */
+  /* 🔥 OPEN GRAPH (FIXED) */
+  /* ========================= */
   openGraph: {
     title: "Ditelaga Creative Digital",
     description:
@@ -57,22 +63,39 @@ export const metadata: Metadata = {
     siteName: "Ditelaga Creative Digital",
     locale: "id_ID",
     type: "website",
+
+    /* 🔥 PENTING: DEFAULT IMAGE */
+    images: [
+      {
+        url: "https://ditelaga.digital/og/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ditelaga Creative Digital",
+      },
+    ],
   },
 
-  /* 🔥 FACEBOOK APP (OPTIONAL) */
-  other: {
-    "fb:app_id": "2741934262857401",
-  },
-
-  /* 🔥 TWITTER (TANPA IMAGE) */
+  /* ========================= */
+  /* 🔥 TWITTER */
+  /* ========================= */
   twitter: {
     card: "summary_large_image",
     title: "Ditelaga Creative Digital",
     description:
       "Solusi website dan digital marketing modern untuk bisnis Anda.",
+    images: ["https://ditelaga.digital/og/og-image.jpg"],
   },
 
+  /* ========================= */
+  /* 🔥 FACEBOOK APP */
+  /* ========================= */
+  other: {
+    "fb:app_id": "2741934262857401",
+  },
+
+  /* ========================= */
   /* 🔥 ROBOTS */
+  /* ========================= */
   robots: {
     index: true,
     follow: true,
@@ -119,7 +142,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: "Ditelaga Creative Digital",
               url: "https://ditelaga.digital",
-              logo: "https://ditelaga.digital/og-image-public.jpg",
+              logo: "https://ditelaga.digital/icon.png",
               sameAs: [
                 "https://instagram.com/ditelaga.idn",
                 "https://facebook.com/ditelaga.id",
@@ -128,18 +151,26 @@ export default function RootLayout({
           }}
         />
 
+        {/* ========================= */}
         {/* 🔥 NAVBAR */}
+        {/* ========================= */}
         <Navbar />
 
+        {/* ========================= */}
         {/* 🔥 MAIN */}
+        {/* ========================= */}
         <main className="overflow-x-hidden">
           {children}
         </main>
 
+        {/* ========================= */}
         {/* 🔥 FLOATING CTA */}
+        {/* ========================= */}
         <FloatingCTA />
 
+        {/* ========================= */}
         {/* 🔥 FOOTER */}
+        {/* ========================= */}
         <Footer />
 
       </body>
