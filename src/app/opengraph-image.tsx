@@ -1,17 +1,30 @@
 import { generateOG } from "@/lib/og/template";
+import { ogData } from "@/lib/og/data";
+import { headers } from "next/headers";
 
 export const runtime = "edge";
+export const contentType = "image/png"; // 🔥 WAJIB
 
-export const size = {
-  width: 1200,
-  height: 630,
-};
+export default async function Image() {
+  const headersList = await headers();
 
-export const contentType = "image/png";
+  const url =
+    headersList.get("x-url") ||
+    headersList.get("referer") ||
+    "";
 
-export default function Image() {
-  return generateOG({
-    title: "Ditelaga Creative Digital",
-    subtitle: "Website • SEO • Ads • Social Media",
-  });
+  const pathname = url
+    .replace("https://ditelaga.digital", "")
+    .split("?")[0];
+
+  const data = ogData[pathname as keyof typeof ogData];
+
+  if (!data) {
+    return generateOG({
+      title: "Ditelaga Creative Digital",
+      subtitle: "Website • SEO • Ads • Social Media",
+    });
+  }
+
+  return generateOG(data);
 }

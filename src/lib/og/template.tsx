@@ -1,5 +1,7 @@
 import { ImageResponse } from "next/og";
 
+export const contentType = "image/png"; // 🔥 WAJIB
+
 type OGProps = {
   title: string;
   subtitle?: string;
@@ -22,7 +24,7 @@ export function generateOG({ title, subtitle }: OGProps) {
           position: "relative",
         }}
       >
-        {/* === GRID BACKGROUND === */}
+        {/* 🔥 GRID BACKGROUND */}
         <div
           style={{
             position: "absolute",
@@ -33,7 +35,7 @@ export function generateOG({ title, subtitle }: OGProps) {
           }}
         />
 
-        {/* === GLOW 1 === */}
+        {/* 🔥 GLOW LEFT */}
         <div
           style={{
             position: "absolute",
@@ -48,7 +50,7 @@ export function generateOG({ title, subtitle }: OGProps) {
           }}
         />
 
-        {/* === GLOW 2 === */}
+        {/* 🔥 GLOW RIGHT */}
         <div
           style={{
             position: "absolute",
@@ -63,7 +65,7 @@ export function generateOG({ title, subtitle }: OGProps) {
           }}
         />
 
-        {/* === TOP BAR === */}
+        {/* 🔥 TOP BAR */}
         <div
           style={{
             display: "flex",
@@ -72,19 +74,18 @@ export function generateOG({ title, subtitle }: OGProps) {
             zIndex: 2,
           }}
         >
-          <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <img
-              src="https://ditelaga.digital/og-image-public.jpg"
-              width="40"
-              height="40"
-              style={{ borderRadius: 12 }}
-            />
-            <span style={{ fontSize: 24, fontWeight: 600 }}>
-              Ditelaga Digital
-            </span>
+          {/* BRAND TEXT ONLY (AMAN) */}
+          <div
+            style={{
+              fontSize: 26,
+              fontWeight: 700,
+              letterSpacing: "-0.02em",
+            }}
+          >
+            Ditelaga Creative Digital
           </div>
 
-          {/* Glass Badge */}
+          {/* BADGE */}
           <div
             style={{
               fontSize: 16,
@@ -92,14 +93,13 @@ export function generateOG({ title, subtitle }: OGProps) {
               borderRadius: 999,
               background: "rgba(255,255,255,0.05)",
               border: "1px solid rgba(255,255,255,0.12)",
-              backdropFilter: "blur(12px)",
             }}
           >
             ⭐ Trusted by 100+ Clients
           </div>
         </div>
 
-        {/* === CONTENT === */}
+        {/* 🔥 CONTENT */}
         <div
           style={{
             maxWidth: 820,
@@ -136,7 +136,7 @@ export function generateOG({ title, subtitle }: OGProps) {
           )}
         </div>
 
-        {/* === FOOTER === */}
+        {/* 🔥 FOOTER */}
         <div
           style={{
             display: "flex",
