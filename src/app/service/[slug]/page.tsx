@@ -1,8 +1,9 @@
 import { services } from "@/lib/services";
 import { notFound } from "next/navigation";
+import { generateServiceMetadata } from "@/lib/seo";
 import type { Metadata } from "next";
 
-/* 🔥 METADATA */
+/* 🔥 AUTO METADATA */
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
@@ -13,23 +14,7 @@ export async function generateMetadata(
 
   if (!service) return {};
 
-  const url = `https://ditelaga.digital/service/${slug}`;
-
-  return {
-    title: service.title,
-    description: service.subtitle,
-    alternates: {
-      canonical: url,
-    },
-    openGraph: {
-      title: service.title,
-      description: service.subtitle,
-      url,
-      siteName: "Ditelaga Creative Digital",
-      locale: "id_ID",
-      type: "website",
-    },
-  };
+  return generateServiceMetadata(service);
 }
 
 /* 🔥 PAGE */

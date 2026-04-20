@@ -10,26 +10,24 @@ import SocialMediaModule from "@/modules/services/social-media-management";
 import VideoAdsModule from "@/modules/services/video-ads";
 
 /* ========================= */
-/* 🔥 TYPE (SUPER SCALABLE) */
+/* 🔥 TYPE */
 /* ========================= */
 export type ServiceItem = {
   slug: string;
 
-  /* 🔥 UI vs SEO */
-  shortTitle: string; // footer / navbar
-  title: string;      // hero / SEO
+  shortTitle: string;
+  title: string;
   subtitle: string;
 
   component: React.ComponentType;
 
-  /* 🔥 BRAND SYSTEM */
   icon?: string;
-  ogImage?: string;
+  ogImage: string; // 🔥 WAJIB
   color?: string;
 };
 
 /* ========================= */
-/* 🔥 MASTER DATA */
+/* 🔥 DATA */
 /* ========================= */
 export const services: ServiceItem[] = [
   {
@@ -69,7 +67,7 @@ export const services: ServiceItem[] = [
     subtitle: "Optimasi Closing • Cocok untuk Ads",
     component: LandingPageModule,
     icon: "/icons/landing-page.svg",
-    ogImage: "/og/landing.jpg",
+    ogImage: "/og/landing-page.jpg", // 🔥 FIX
     color: "#22c55e",
   },
   {
