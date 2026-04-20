@@ -69,7 +69,7 @@ export function generateOG({ title, subtitle }: OGProps) {
                 fontWeight: 600,
               }}
             >
-              Ditelaga Digital
+              Ditelaga Creative Digital
             </span>
           </div>
 
@@ -132,7 +132,7 @@ export function generateOG({ title, subtitle }: OGProps) {
             opacity: 0.7,
           }}
         >
-          <span>ditelaga.digital</span>
+          <span>Ditelaga Creative Digital</span>
 
           <span>🚀 Digital Growth Partner</span>
         </div>
