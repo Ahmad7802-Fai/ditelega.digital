@@ -10,7 +10,7 @@ import SocialMediaModule from "@/modules/services/social-media-management";
 import VideoAdsModule from "@/modules/services/video-ads";
 
 /* ========================= */
-/* 🔥 TYPE */
+/* 🔥 TYPES */
 /* ========================= */
 
 export type FAQItem = {
@@ -31,9 +31,45 @@ export type ServiceItem = {
   ogImage: string;
   color?: string;
 
-  /* 🔥 SEO BOOST */
+  /* 🔥 SEO */
+  description: string;
+  keywords: string[];
+  related: string[];
+  schema: any;
+
   faq?: FAQItem[];
 };
+
+/* ========================= */
+/* 🔥 DEFAULT SEO GENERATOR */
+/* ========================= */
+
+const BASE_URL = "https://ditelaga.digital";
+
+const createSEO = (
+  title: string,
+  description: string,
+  keywords: string[]
+) => ({
+  description,
+  keywords,
+  related: ["seo", "landing-page", "company-profile"],
+  schema: {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: title,
+    description,
+    provider: {
+      "@type": "Organization",
+      name: "Ditelaga Creative Digital",
+      url: BASE_URL,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Indonesia",
+    },
+  },
+});
 
 /* ========================= */
 /* 🔥 DATA */
@@ -50,16 +86,22 @@ export const services: ServiceItem[] = [
     ogImage: "/og/seo.jpg",
     color: "#16a34a",
 
+    ...createSEO(
+      "Jasa SEO Profesional",
+      "Jasa SEO untuk meningkatkan ranking website di Google, mendatangkan traffic organik, dan meningkatkan leads bisnis.",
+      ["jasa SEO", "SEO website", "SEO Google", "SEO Indonesia"]
+    ),
+
     faq: [
       {
         question: "Berapa lama hasil SEO terlihat?",
         answer:
-          "Biasanya 3–6 bulan tergantung tingkat kompetisi dan kondisi website.",
+          "Biasanya 3–6 bulan tergantung kompetisi dan kondisi website.",
       },
       {
-        question: "Apakah SEO aman untuk jangka panjang?",
+        question: "Apakah SEO aman?",
         answer:
-          "Ya, SEO adalah strategi organik yang aman dan berkelanjutan jika dilakukan dengan benar.",
+          "Ya, SEO adalah strategi jangka panjang yang aman jika dilakukan dengan benar.",
       },
     ],
   },
@@ -74,16 +116,16 @@ export const services: ServiceItem[] = [
     ogImage: "/og/google-ads.jpg",
     color: "#2563eb",
 
+    ...createSEO(
+      "Jasa Google Ads",
+      "Jasa Google Ads untuk meningkatkan traffic, leads, dan penjualan secara cepat dan terukur.",
+      ["Google Ads", "iklan Google", "PPC", "iklan digital"]
+    ),
+
     faq: [
       {
-        question: "Berapa budget minimal Google Ads?",
-        answer:
-          "Budget fleksibel, namun ideal mulai dari 3–5 juta per bulan untuk hasil optimal.",
-      },
-      {
-        question: "Apakah Google Ads langsung dapat hasil?",
-        answer:
-          "Ya, Google Ads bisa langsung menghasilkan traffic dan leads dalam waktu cepat.",
+        question: "Berapa budget minimal?",
+        answer: "Ideal mulai dari 3–5 juta per bulan.",
       },
     ],
   },
@@ -97,6 +139,12 @@ export const services: ServiceItem[] = [
     icon: "/icons/facebook-ads.svg",
     ogImage: "/og/facebook-ads.jpg",
     color: "#1d4ed8",
+
+    ...createSEO(
+      "Jasa Facebook Ads",
+      "Jasa Facebook dan Instagram Ads untuk meningkatkan leads dan penjualan dengan targeting yang tepat.",
+      ["Facebook Ads", "Instagram Ads", "iklan sosial media"]
+    ),
   },
 
   {
@@ -109,11 +157,17 @@ export const services: ServiceItem[] = [
     ogImage: "/og/landing-page.jpg",
     color: "#22c55e",
 
+    ...createSEO(
+      "Jasa Landing Page",
+      "Jasa pembuatan landing page yang fokus pada conversion untuk meningkatkan penjualan dan leads.",
+      ["landing page", "halaman penjualan", "website conversion"]
+    ),
+
     faq: [
       {
-        question: "Apa beda landing page dan website biasa?",
+        question: "Apa beda landing page dan website?",
         answer:
-          "Landing page fokus pada conversion (jualan), sedangkan website lebih ke informasi.",
+          "Landing page fokus pada conversion, website lebih ke informasi.",
       },
     ],
   },
@@ -127,6 +181,12 @@ export const services: ServiceItem[] = [
     icon: "/icons/company.svg",
     ogImage: "/og/company-profile.jpg",
     color: "#0f766e",
+
+    ...createSEO(
+      "Jasa Website Company Profile",
+      "Jasa pembuatan website company profile profesional untuk meningkatkan kredibilitas bisnis.",
+      ["company profile", "website perusahaan", "website bisnis"]
+    ),
   },
 
   {
@@ -138,6 +198,12 @@ export const services: ServiceItem[] = [
     icon: "/icons/ecommerce.svg",
     ogImage: "/og/ecommerce.jpg",
     color: "#f59e0b",
+
+    ...createSEO(
+      "Jasa Website E-Commerce",
+      "Jasa pembuatan website e-commerce untuk meningkatkan penjualan dan otomatisasi bisnis online.",
+      ["website toko online", "ecommerce", "jualan online"]
+    ),
   },
 
   {
@@ -149,6 +215,12 @@ export const services: ServiceItem[] = [
     icon: "/icons/branding.svg",
     ogImage: "/og/branding.jpg",
     color: "#a855f7",
+
+    ...createSEO(
+      "Jasa Branding",
+      "Jasa branding dan identity design untuk memperkuat brand dan meningkatkan daya saing bisnis.",
+      ["branding", "brand identity", "desain brand"]
+    ),
   },
 
   {
@@ -160,6 +232,12 @@ export const services: ServiceItem[] = [
     icon: "/icons/system.svg",
     ogImage: "/og/system.jpg",
     color: "#06b6d4",
+
+    ...createSEO(
+      "Sistem Management Bisnis",
+      "Jasa pembuatan sistem management bisnis custom untuk otomatisasi operasional dan efisiensi bisnis.",
+      ["sistem bisnis", "software bisnis", "ERP Indonesia"]
+    ),
   },
 
   {
@@ -171,6 +249,12 @@ export const services: ServiceItem[] = [
     icon: "/icons/social-media.svg",
     ogImage: "/og/social.jpg",
     color: "#ec4899",
+
+    ...createSEO(
+      "Jasa Social Media Management",
+      "Jasa pengelolaan social media untuk meningkatkan engagement dan branding bisnis.",
+      ["social media", "instagram marketing", "konten digital"]
+    ),
   },
 
   {
@@ -182,5 +266,11 @@ export const services: ServiceItem[] = [
     icon: "/icons/video.svg",
     ogImage: "/og/video.jpg",
     color: "#ef4444",
+
+    ...createSEO(
+      "Jasa Video Ads",
+      "Jasa pembuatan video ads untuk meningkatkan conversion dan performa iklan digital.",
+      ["video marketing", "video ads", "iklan video"]
+    ),
   },
 ];
