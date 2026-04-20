@@ -2,19 +2,19 @@ import { services } from "@/lib/services";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 
+/* ========================= */
 /* 🔥 AUTO METADATA */
+/* ========================= */
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }): Promise<Metadata> {
-  const { slug } = await params;
-
-  const service = services.find((s) => s.slug === slug);
+  const service = services.find((s) => s.slug === params.slug);
 
   if (!service) return {};
 
-  const url = `https://ditelaga.digital/service/${slug}`;
+  const url = `https://ditelaga.digital/service/${params.slug}`;
 
   return {
     title: service.title,
@@ -28,22 +28,33 @@ export async function generateMetadata({
       title: service.title,
       description: service.subtitle,
       url,
-      siteName: "Ditelaga Creative Digital",
-      locale: "id_ID",
-      type: "website",
+      images: [
+        {
+          url: `https://ditelaga.digital${service.ogImage}`,
+          width: 1200,
+          height: 630,
+        },
+      ],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title: service.title,
+      description: service.subtitle,
+      images: [`https://ditelaga.digital${service.ogImage}`],
     },
   };
 }
 
-/* 🔥 AUTO PAGE */
-export default async function Page({
+/* ========================= */
+/* 🔥 PAGE */
+/* ========================= */
+export default function Page({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
-
-  const service = services.find((s) => s.slug === slug);
+  const service = services.find((s) => s.slug === params.slug);
 
   if (!service) return notFound();
 

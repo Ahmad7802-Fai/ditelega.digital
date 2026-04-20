@@ -5,7 +5,7 @@ export const contentType = "image/png";
 
 export default function Image() {
   return generateOG({
-    title: "Ditelaga Creative Digital",
-    subtitle: "Website • SEO • Ads • Social Media",
+    title: "Layanan Ditelaga Digital",
+    subtitle: "Website • SEO • Ads • Branding",
   });
 }
