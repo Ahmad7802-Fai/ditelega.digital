@@ -88,7 +88,7 @@ export const services: ServiceItem[] = [
   {
     slug: "seo",
     shortTitle: "SEO",
-    title: "Jasa SEO Ranking Halaman 1",
+    title: "Jasa SEO Naik Halaman 1 Google | Traffic & Leads Konsisten",
     subtitle: "Traffic Organik Naik • Leads Masuk Konsisten",
     component: SeoModule,
     icon: "/icons/seo.svg",
@@ -96,10 +96,24 @@ export const services: ServiceItem[] = [
     color: "#16a34a",
 
     ...createSEO(
-      "Jasa SEO Profesional",
-      "Jasa SEO untuk meningkatkan ranking website di Google, mendatangkan traffic organik, dan meningkatkan leads bisnis.",
-      ["jasa SEO", "SEO website", "SEO Google", "SEO Indonesia"]
+      "Jasa SEO Naik Halaman 1 Google",
+      "Website Anda sepi traffic? Kami bantu naik ke halaman 1 Google dengan strategi SEO yang terbukti meningkatkan leads dan penjualan bisnis.",
+      [
+        "jasa SEO",
+        "jasa SEO website",
+        "jasa SEO Google",
+        "jasa SEO Indonesia",
+        "SEO halaman 1 Google",
+        "jasa SEO profesional",
+        "optimasi SEO website"
+      ]
     ),
+
+    related: [
+      "landing-page",
+      "google-ads",
+      "company-profile"
+    ],
 
     faq: [
       {
@@ -112,13 +126,23 @@ export const services: ServiceItem[] = [
         answer:
           "Ya, SEO adalah strategi jangka panjang yang aman jika dilakukan dengan benar.",
       },
+      {
+        question: "Apakah SEO bisa meningkatkan penjualan?",
+        answer:
+          "Ya, SEO membantu mendatangkan traffic yang relevan sehingga peluang konversi meningkat.",
+      },
+      {
+        question: "Apakah SEO cocok untuk semua bisnis?",
+        answer:
+          "SEO cocok untuk hampir semua bisnis yang ingin mendapatkan traffic organik dari Google.",
+      },
     ],
   },
 
   {
     slug: "google-ads",
     shortTitle: "Google Ads",
-    title: "Jasa Google Ads Anti Boncos",
+    title: "Jasa Google Ads Anti Boncos | Leads Berkualitas & ROAS Tinggi",
     subtitle: "Leads Berkualitas • Budget Lebih Efisien",
     component: GoogleAdsModule,
     icon: "/icons/google-ads.svg",
@@ -126,15 +150,45 @@ export const services: ServiceItem[] = [
     color: "#2563eb",
 
     ...createSEO(
-      "Jasa Google Ads",
-      "Jasa Google Ads untuk meningkatkan traffic, leads, dan penjualan secara cepat dan terukur.",
-      ["Google Ads", "iklan Google", "PPC", "iklan digital"]
+      "Jasa Google Ads Anti Boncos",
+      "Iklan Google boros tapi tidak menghasilkan? Kami bantu optimasi Google Ads dengan strategi yang tepat untuk meningkatkan leads berkualitas dan ROAS bisnis Anda.",
+      [
+        "jasa Google Ads",
+        "jasa iklan Google",
+        "jasa PPC Google",
+        "Google Ads Indonesia",
+        "jasa Google Ads profesional",
+        "optimasi Google Ads",
+        "iklan Google Ads terbaik"
+      ]
     ),
+
+    related: [
+      "landing-page",
+      "seo",
+      "video-ads"
+    ],
 
     faq: [
       {
-        question: "Berapa budget minimal?",
-        answer: "Ideal mulai dari 3–5 juta per bulan.",
+        question: "Berapa budget minimal Google Ads?",
+        answer:
+          "Budget fleksibel, namun ideal mulai dari 3–5 juta per bulan untuk hasil yang optimal.",
+      },
+      {
+        question: "Apakah Google Ads langsung menghasilkan?",
+        answer:
+          "Ya, Google Ads dapat langsung menghasilkan traffic dan leads dalam waktu cepat jika strategi iklan tepat.",
+      },
+      {
+        question: "Kenapa iklan Google saya boncos?",
+        answer:
+          "Biasanya karena targeting kurang tepat, keyword tidak relevan, atau landing page tidak optimal.",
+      },
+      {
+        question: "Apakah Google Ads cocok untuk semua bisnis?",
+        answer:
+          "Google Ads cocok untuk bisnis yang ingin mendapatkan hasil cepat, terutama untuk produk atau jasa yang sudah memiliki demand.",
       },
     ],
   },
@@ -142,7 +196,7 @@ export const services: ServiceItem[] = [
   {
     slug: "facebook-ads",
     shortTitle: "Facebook Ads",
-    title: "Jasa Facebook & Instagram Ads",
+    title: "Jasa Facebook & Instagram Ads | Target Tepat & Closing Lebih Tinggi",
     subtitle: "Target Tepat • Closing Lebih Tinggi",
     component: FacebookAdsModule,
     icon: "/icons/facebook-ads.svg",
@@ -150,16 +204,53 @@ export const services: ServiceItem[] = [
     color: "#1d4ed8",
 
     ...createSEO(
-      "Jasa Facebook Ads",
-      "Jasa Facebook dan Instagram Ads untuk meningkatkan leads dan penjualan dengan targeting yang tepat.",
-      ["Facebook Ads", "Instagram Ads", "iklan sosial media"]
+      "Jasa Facebook Ads & Instagram Ads",
+      "Iklan Facebook sudah jalan tapi tidak menghasilkan? Kami bantu optimasi Facebook & Instagram Ads dengan targeting yang tepat untuk meningkatkan leads dan penjualan bisnis Anda.",
+      [
+        "jasa Facebook Ads",
+        "jasa Instagram Ads",
+        "iklan Facebook",
+        "iklan Instagram",
+        "jasa social media ads",
+        "Facebook Ads Indonesia",
+        "jasa iklan sosial media"
+      ]
     ),
+
+    related: [
+      "landing-page",
+      "video-ads",
+      "social-media-management"
+    ],
+
+    faq: [
+      {
+        question: "Berapa budget minimal Facebook Ads?",
+        answer:
+          "Budget fleksibel, namun ideal mulai dari 2–5 juta per bulan untuk mendapatkan hasil optimal.",
+      },
+      {
+        question: "Apakah Facebook Ads cocok untuk semua bisnis?",
+        answer:
+          "Facebook Ads cocok untuk bisnis yang ingin menjangkau target market secara spesifik berdasarkan minat, lokasi, dan perilaku.",
+      },
+      {
+        question: "Kenapa iklan Facebook tidak menghasilkan?",
+        answer:
+          "Biasanya karena targeting tidak tepat, creative kurang menarik, atau funnel penjualan belum optimal.",
+      },
+      {
+        question: "Apa beda Facebook Ads dan Google Ads?",
+        answer:
+          "Google Ads menangkap demand yang sudah ada, sedangkan Facebook Ads menciptakan demand melalui targeting yang spesifik.",
+      },
+    ],
   },
 
   {
     slug: "landing-page",
     shortTitle: "Landing Page",
-    title: "Landing Page High Conversion",
+    title: "Jasa Landing Page High Conversion | Closing Lebih Tinggi dari Ads",
     subtitle: "Optimasi Closing • Cocok untuk Ads",
     component: LandingPageModule,
     icon: "/icons/landing-page.svg",
@@ -167,16 +258,45 @@ export const services: ServiceItem[] = [
     color: "#22c55e",
 
     ...createSEO(
-      "Jasa Landing Page",
-      "Jasa pembuatan landing page yang fokus pada conversion untuk meningkatkan penjualan dan leads.",
-      ["landing page", "halaman penjualan", "website conversion"]
+      "Jasa Landing Page High Conversion",
+      "Traffic sudah banyak tapi tidak closing? Kami buat landing page yang dirancang khusus untuk meningkatkan conversion, menghasilkan leads, dan memaksimalkan hasil dari iklan Anda.",
+      [
+        "jasa landing page",
+        "jasa landing page conversion",
+        "landing page high conversion",
+        "jasa website sales",
+        "landing page untuk iklan",
+        "jasa pembuatan landing page",
+        "landing page bisnis"
+      ]
     ),
+
+    related: [
+      "google-ads",
+      "facebook-ads",
+      "seo"
+    ],
 
     faq: [
       {
-        question: "Apa beda landing page dan website?",
+        question: "Apa beda landing page dan website biasa?",
         answer:
-          "Landing page fokus pada conversion, website lebih ke informasi.",
+          "Landing page fokus pada satu tujuan yaitu conversion (jualan atau leads), sedangkan website lebih ke informasi.",
+      },
+      {
+        question: "Kenapa landing page penting untuk iklan?",
+        answer:
+          "Landing page membantu meningkatkan conversion dari traffic iklan sehingga budget lebih efisien dan hasil lebih maksimal.",
+      },
+      {
+        question: "Apakah landing page bisa meningkatkan penjualan?",
+        answer:
+          "Ya, landing page yang dioptimasi dengan baik dapat meningkatkan conversion rate secara signifikan.",
+      },
+      {
+        question: "Berapa lama pembuatan landing page?",
+        answer:
+          "Waktu pembuatan tergantung kompleksitas, biasanya 5–14 hari kerja.",
       },
     ],
   },
@@ -184,7 +304,7 @@ export const services: ServiceItem[] = [
   {
     slug: "company-profile",
     shortTitle: "Company Profile",
-    title: "Website Company Profile Profesional",
+    title: "Jasa Website Company Profile Profesional | Bangun Trust & Kredibilitas",
     subtitle: "Brand Lebih Kredibel • Meningkatkan Trust",
     component: CompanyProfileModule,
     icon: "/icons/company.svg",
@@ -192,16 +312,53 @@ export const services: ServiceItem[] = [
     color: "#0f766e",
 
     ...createSEO(
-      "Jasa Website Company Profile",
-      "Jasa pembuatan website company profile profesional untuk meningkatkan kredibilitas bisnis.",
-      ["company profile", "website perusahaan", "website bisnis"]
+      "Jasa Website Company Profile Profesional",
+      "Bisnis Anda belum terlihat profesional di mata calon pelanggan? Kami membantu membuat website company profile yang meningkatkan kepercayaan, memperkuat branding, dan membantu mendapatkan lebih banyak klien.",
+      [
+        "jasa website company profile",
+        "website company profile profesional",
+        "jasa pembuatan website perusahaan",
+        "website bisnis profesional",
+        "company profile online",
+        "website perusahaan terpercaya",
+        "jasa website bisnis"
+      ]
     ),
+
+    related: [
+      "seo",
+      "branding",
+      "landing-page"
+    ],
+
+    faq: [
+      {
+        question: "Apa fungsi website company profile?",
+        answer:
+          "Website company profile berfungsi untuk meningkatkan kredibilitas bisnis dan memberikan informasi lengkap kepada calon pelanggan.",
+      },
+      {
+        question: "Apakah website company profile bisa mendatangkan klien?",
+        answer:
+          "Ya, dengan optimasi SEO dan desain yang tepat, website dapat menjadi sumber leads baru untuk bisnis.",
+      },
+      {
+        question: "Berapa lama pembuatan website company profile?",
+        answer:
+          "Biasanya memakan waktu 7–21 hari tergantung kebutuhan dan kompleksitas.",
+      },
+      {
+        question: "Apa saja isi website company profile?",
+        answer:
+          "Umumnya berisi profil perusahaan, layanan, portofolio, dan kontak untuk memudahkan calon klien menghubungi Anda.",
+      },
+    ],
   },
 
   {
     slug: "ecommerce",
     shortTitle: "E-Commerce",
-    title: "Website E-Commerce Siap Jualan",
+    title: "Jasa Website E-Commerce | Toko Online Siap Jualan & Scale",
     subtitle: "Order Otomatis • Omset Naik",
     component: EcommerceModule,
     icon: "/icons/ecommerce.svg",
@@ -209,16 +366,53 @@ export const services: ServiceItem[] = [
     color: "#f59e0b",
 
     ...createSEO(
-      "Jasa Website E-Commerce",
-      "Jasa pembuatan website e-commerce untuk meningkatkan penjualan dan otomatisasi bisnis online.",
-      ["website toko online", "ecommerce", "jualan online"]
+      "Jasa Website E-Commerce Toko Online",
+      "Masih jualan di marketplace dan kena potongan? Kami bantu buat website e-commerce sendiri agar Anda punya kontrol penuh, tanpa komisi, dan bisa scale bisnis lebih besar.",
+      [
+        "jasa website ecommerce",
+        "jasa toko online",
+        "website toko online",
+        "jasa pembuatan toko online",
+        "ecommerce Indonesia",
+        "website jualan online",
+        "toko online profesional"
+      ]
     ),
+
+    related: [
+      "landing-page",
+      "seo",
+      "management-system"
+    ],
+
+    faq: [
+      {
+        question: "Apa keuntungan punya website e-commerce sendiri?",
+        answer:
+          "Anda memiliki kontrol penuh, tanpa komisi, dan bisa membangun brand sendiri tanpa bergantung pada marketplace.",
+      },
+      {
+        question: "Apakah website e-commerce bisa meningkatkan penjualan?",
+        answer:
+          "Ya, dengan strategi yang tepat, website e-commerce dapat meningkatkan conversion dan profit karena tanpa potongan marketplace.",
+      },
+      {
+        question: "Apa bedanya jualan di marketplace dan website sendiri?",
+        answer:
+          "Marketplace memiliki banyak kompetitor dan potongan biaya, sedangkan website sendiri memberikan kontrol penuh dan margin lebih besar.",
+      },
+      {
+        question: "Apakah bisa terintegrasi dengan sistem lain?",
+        answer:
+          "Ya, website e-commerce dapat diintegrasikan dengan payment gateway, sistem inventory, dan tools marketing.",
+      },
+    ],
   },
 
   {
     slug: "branding",
     shortTitle: "Branding",
-    title: "Jasa Branding & Identity Design",
+    title: "Jasa Branding & Identity Design | Bangun Brand Kuat & Profesional",
     subtitle: "Brand Lebih Kuat • Lebih Diingat",
     component: BrandingModule,
     icon: "/icons/branding.svg",
@@ -226,16 +420,53 @@ export const services: ServiceItem[] = [
     color: "#a855f7",
 
     ...createSEO(
-      "Jasa Branding",
-      "Jasa branding dan identity design untuk memperkuat brand dan meningkatkan daya saing bisnis.",
-      ["branding", "brand identity", "desain brand"]
+      "Jasa Branding & Identity Design Profesional",
+      "Brand Anda belum terlihat profesional? Kami membantu membangun branding dan identity design yang kuat agar bisnis Anda lebih dipercaya, mudah diingat, dan tampil berbeda dari kompetitor.",
+      [
+        "jasa branding",
+        "brand identity design",
+        "jasa desain brand",
+        "branding bisnis",
+        "brand profesional",
+        "jasa desain logo dan branding",
+        "identity design Indonesia"
+      ]
     ),
+
+    related: [
+      "company-profile",
+      "social-media-management",
+      "landing-page"
+    ],
+
+    faq: [
+      {
+        question: "Apa itu branding dan kenapa penting?",
+        answer:
+          "Branding adalah identitas bisnis yang membedakan Anda dari kompetitor dan membantu membangun kepercayaan pelanggan.",
+      },
+      {
+        question: "Apa saja yang termasuk dalam branding?",
+        answer:
+          "Branding meliputi logo, warna, typography, tone komunikasi, dan identitas visual yang konsisten.",
+      },
+      {
+        question: "Apakah branding bisa meningkatkan penjualan?",
+        answer:
+          "Ya, branding yang kuat membuat bisnis lebih dipercaya sehingga meningkatkan conversion dan loyalitas pelanggan.",
+      },
+      {
+        question: "Apa bedanya branding dan marketing?",
+        answer:
+          "Branding membangun identitas dan persepsi, sedangkan marketing berfokus pada penjualan dan promosi.",
+      },
+    ],
   },
 
   {
     slug: "management-system",
     shortTitle: "System",
-    title: "Sistem Management Bisnis Custom",
+    title: "Sistem Management Bisnis Custom | Otomatisasi & Scale Operasional",
     subtitle: "Otomatisasi Bisnis • Lebih Efisien",
     component: ManagementSystemModule,
     icon: "/icons/system.svg",
@@ -243,16 +474,53 @@ export const services: ServiceItem[] = [
     color: "#06b6d4",
 
     ...createSEO(
-      "Sistem Management Bisnis",
-      "Jasa pembuatan sistem management bisnis custom untuk otomatisasi operasional dan efisiensi bisnis.",
-      ["sistem bisnis", "software bisnis", "ERP Indonesia"]
+      "Sistem Management Bisnis Custom & ERP",
+      "Operasional bisnis masih manual dan tidak efisien? Kami bantu membangun sistem management bisnis custom untuk otomatisasi proses, meningkatkan produktivitas, dan mempermudah scale bisnis Anda.",
+      [
+        "sistem management bisnis",
+        "software bisnis custom",
+        "aplikasi manajemen bisnis",
+        "ERP Indonesia",
+        "sistem ERP custom",
+        "software perusahaan",
+        "otomatisasi bisnis"
+      ]
     ),
+
+    related: [
+      "ecommerce",
+      "seo",
+      "company-profile"
+    ],
+
+    faq: [
+      {
+        question: "Apa itu sistem management bisnis?",
+        answer:
+          "Sistem management bisnis adalah software yang membantu mengelola operasional seperti data, transaksi, dan proses bisnis secara otomatis.",
+      },
+      {
+        question: "Apa manfaat sistem custom dibanding software jadi?",
+        answer:
+          "Sistem custom dapat disesuaikan dengan kebutuhan bisnis sehingga lebih fleksibel dan efisien dibanding software umum.",
+      },
+      {
+        question: "Apakah sistem bisa terintegrasi dengan bisnis saya?",
+        answer:
+          "Ya, sistem dapat diintegrasikan dengan berbagai kebutuhan seperti CRM, inventory, hingga laporan keuangan.",
+      },
+      {
+        question: "Berapa biaya pembuatan sistem management bisnis?",
+        answer:
+          "Biaya tergantung kompleksitas fitur dan kebutuhan bisnis, biasanya disesuaikan dengan skala operasional.",
+      },
+    ],
   },
 
   {
     slug: "social-media-management",
     shortTitle: "Social Media",
-    title: "Jasa Social Media Management",
+    title: "Jasa Social Media Management | Engagement Naik & Branding Kuat",
     subtitle: "Engagement Naik • Branding Kuat",
     component: SocialMediaModule,
     icon: "/icons/social-media.svg",
@@ -260,16 +528,53 @@ export const services: ServiceItem[] = [
     color: "#ec4899",
 
     ...createSEO(
-      "Jasa Social Media Management",
-      "Jasa pengelolaan social media untuk meningkatkan engagement dan branding bisnis.",
-      ["social media", "instagram marketing", "konten digital"]
+      "Jasa Social Media Management Instagram & TikTok",
+      "Social media sudah aktif tapi tidak berkembang? Kami bantu mengelola Instagram dan TikTok dengan strategi konten yang tepat untuk meningkatkan engagement, branding, dan menarik calon pelanggan.",
+      [
+        "jasa social media management",
+        "jasa kelola instagram",
+        "jasa admin instagram",
+        "instagram marketing",
+        "jasa konten sosial media",
+        "social media marketing Indonesia",
+        "jasa kelola tiktok"
+      ]
     ),
+
+    related: [
+      "branding",
+      "video-ads",
+      "landing-page"
+    ],
+
+    faq: [
+      {
+        question: "Apa itu social media management?",
+        answer:
+          "Social media management adalah layanan pengelolaan akun media sosial mulai dari konten, posting, hingga strategi untuk meningkatkan engagement.",
+      },
+      {
+        question: "Apakah social media bisa mendatangkan pelanggan?",
+        answer:
+          "Ya, dengan strategi konten yang tepat, social media dapat menarik calon pelanggan dan meningkatkan brand awareness.",
+      },
+      {
+        question: "Platform apa saja yang dikelola?",
+        answer:
+          "Kami mengelola berbagai platform seperti Instagram, TikTok, dan platform lainnya sesuai kebutuhan bisnis.",
+      },
+      {
+        question: "Kenapa engagement penting?",
+        answer:
+          "Engagement menunjukkan interaksi audiens dengan brand, yang berpengaruh pada kepercayaan dan potensi konversi.",
+      },
+    ],
   },
 
   {
     slug: "video-ads",
     shortTitle: "Video Ads",
-    title: "Jasa Video Ads Marketing",
+    title: "Jasa Video Ads Marketing | Konten Viral & Conversion Tinggi",
     subtitle: "Konten Viral • Conversion Tinggi",
     component: VideoAdsModule,
     icon: "/icons/video.svg",
@@ -277,9 +582,46 @@ export const services: ServiceItem[] = [
     color: "#ef4444",
 
     ...createSEO(
-      "Jasa Video Ads",
-      "Jasa pembuatan video ads untuk meningkatkan conversion dan performa iklan digital.",
-      ["video marketing", "video ads", "iklan video"]
+      "Jasa Video Ads TikTok & Instagram",
+      "Konten sudah dibuat tapi tidak menghasilkan? Kami bantu membuat video ads yang menarik, viral, dan dirancang khusus untuk meningkatkan conversion dari iklan Anda.",
+      [
+        "jasa video ads",
+        "jasa video marketing",
+        "video iklan produk",
+        "video ads tiktok",
+        "video ads instagram",
+        "jasa konten video marketing",
+        "iklan video bisnis"
+      ]
     ),
+
+    related: [
+      "facebook-ads",
+      "social-media-management",
+      "landing-page"
+    ],
+
+    faq: [
+      {
+        question: "Apa itu video ads?",
+        answer:
+          "Video ads adalah konten video yang digunakan untuk promosi produk atau jasa dengan tujuan meningkatkan engagement dan penjualan.",
+      },
+      {
+        question: "Kenapa video ads penting untuk bisnis?",
+        answer:
+          "Video lebih menarik perhatian dibanding konten biasa sehingga meningkatkan peluang klik dan conversion.",
+      },
+      {
+        question: "Apakah video ads bisa viral?",
+        answer:
+          "Ya, dengan konsep dan strategi yang tepat, video ads memiliki potensi untuk viral dan menjangkau lebih banyak audiens.",
+      },
+      {
+        question: "Platform apa saja untuk video ads?",
+        answer:
+          "Video ads bisa digunakan di berbagai platform seperti TikTok, Instagram, Facebook, dan YouTube.",
+      },
+    ],
   },
 ];
