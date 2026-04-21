@@ -1,5 +1,7 @@
 import { services } from "@/lib/services";
 import { notFound } from "next/navigation";
+import FAQ from "@/components/seo/faq";
+import Link from "next/link";
 import {
   generateServiceMetadata,
   generateServiceSchema,
@@ -14,7 +16,6 @@ import Script from "next/script";
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
-
   const { slug } = await params;
 
   const service = services.find((s) => s.slug === slug);
@@ -43,7 +44,9 @@ export default async function Page(
 
   return (
     <>
+      {/* ========================= */}
       {/* 🔥 SERVICE SCHEMA */}
+      {/* ========================= */}
       <Script
         id={`schema-service-${service.slug}`}
         type="application/ld+json"
@@ -52,7 +55,9 @@ export default async function Page(
         }}
       />
 
+      {/* ========================= */}
       {/* 🔥 FAQ SCHEMA */}
+      {/* ========================= */}
       {faqSchema && (
         <Script
           id={`schema-faq-${service.slug}`}
@@ -63,30 +68,45 @@ export default async function Page(
         />
       )}
 
-      {/* 🔥 CONTENT */}
-      <Component />
+      {/* ========================= */}
+      {/* 🔥 MAIN CONTENT */}
+      {/* ========================= */}
+      <main>
+        <Component key={service.slug} />
 
-      {/* 🔥 INTERNAL LINKING */}
-      {service.related && (
-        <section className="py-16 text-center">
-          <p className="text-gray-500 text-sm mb-4">
-            Layanan digital lainnya:
-          </p>
+        {/* ========================= */}
+        {/* 🔥 FAQ UI */}
+        {/* ========================= */}
+        {service.faq && <FAQ items={service.faq} />}
 
-          <div className="flex flex-wrap justify-center gap-4 text-green-600 font-medium">
-            {service.related.map((slug) => {
-              const item = services.find((s) => s.slug === slug);
-              if (!item) return null;
+        {/* ========================= */}
+        {/* 🔥 INTERNAL LINKING */}
+        {/* ========================= */}
+        {service.related?.length > 0 && (
+          <section className="py-16 text-center">
+            <p className="text-gray-500 text-sm mb-4">
+              Layanan digital lainnya:
+            </p>
 
-              return (
-                <a key={slug} href={`/service/${slug}`} className="hover:underline">
-                  {item.title}
-                </a>
-              );
-            })}
-          </div>
-        </section>
-      )}
+            <div className="flex flex-wrap justify-center gap-4 text-green-600 font-medium">
+              {service.related.slice(0, 3).map((slug) => {
+                const item = services.find((s) => s.slug === slug);
+                if (!item) return null;
+
+                return (
+                  <Link
+                    key={slug}
+                    href={`/service/${slug}`}
+                    className="hover:underline"
+                  >
+                    {item.title}
+                  </Link>
+                );
+              })}
+            </div>
+          </section>
+        )}
+      </main>
     </>
   );
 }
