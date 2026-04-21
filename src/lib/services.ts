@@ -53,20 +53,29 @@ const createSEO = (
 ) => ({
   description,
   keywords,
-  related: ["seo", "landing-page", "company-profile"],
+  related: [],
   schema: {
     "@context": "https://schema.org",
     "@type": "Service",
     name: title,
     description,
+
     provider: {
       "@type": "Organization",
       name: "Ditelaga Creative Digital",
       url: BASE_URL,
     },
+
     areaServed: {
       "@type": "Country",
       name: "Indonesia",
+    },
+
+    serviceType: title,
+
+    offers: {
+      "@type": "Offer",
+      availability: "https://schema.org/InStock",
     },
   },
 });

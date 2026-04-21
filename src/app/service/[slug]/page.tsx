@@ -11,12 +11,13 @@ import Script from "next/script";
 /* ========================= */
 /* 🔥 METADATA */
 /* ========================= */
-
 export async function generateMetadata(
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ): Promise<Metadata> {
 
-  const service = services.find((s) => s.slug === params.slug);
+  const { slug } = await params;
+
+  const service = services.find((s) => s.slug === slug);
 
   if (!service) return {};
 
@@ -26,11 +27,12 @@ export async function generateMetadata(
 /* ========================= */
 /* 🔥 PAGE */
 /* ========================= */
-
-export default function Page(
-  { params }: { params: { slug: string } }
+export default async function Page(
+  { params }: { params: Promise<{ slug: string }> }
 ) {
-  const service = services.find((s) => s.slug === params.slug);
+  const { slug } = await params;
+
+  const service = services.find((s) => s.slug === slug);
 
   if (!service) return notFound();
 
@@ -41,9 +43,7 @@ export default function Page(
 
   return (
     <>
-      {/* ========================= */}
       {/* 🔥 SERVICE SCHEMA */}
-      {/* ========================= */}
       <Script
         id={`schema-service-${service.slug}`}
         type="application/ld+json"
@@ -52,9 +52,7 @@ export default function Page(
         }}
       />
 
-      {/* ========================= */}
-      {/* 🔥 FAQ SCHEMA (AUTO) */}
-      {/* ========================= */}
+      {/* 🔥 FAQ SCHEMA */}
       {faqSchema && (
         <Script
           id={`schema-faq-${service.slug}`}
@@ -65,14 +63,10 @@ export default function Page(
         />
       )}
 
-      {/* ========================= */}
-      {/* 🔥 MAIN CONTENT */}
-      {/* ========================= */}
+      {/* 🔥 CONTENT */}
       <Component />
 
-      {/* ========================= */}
-      {/* 🔥 INTERNAL LINKING AUTO */}
-      {/* ========================= */}
+      {/* 🔥 INTERNAL LINKING */}
       {service.related && (
         <section className="py-16 text-center">
           <p className="text-gray-500 text-sm mb-4">
@@ -85,11 +79,7 @@ export default function Page(
               if (!item) return null;
 
               return (
-                <a
-                  key={slug}
-                  href={`/service/${slug}`}
-                  className="hover:underline"
-                >
+                <a key={slug} href={`/service/${slug}`} className="hover:underline">
                   {item.title}
                 </a>
               );
